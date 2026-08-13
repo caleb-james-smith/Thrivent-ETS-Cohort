@@ -32,22 +32,22 @@ function updateOutput(event) {
 
 function showResults(tasks) {
     let text_task_count = `Number of tasks: ${tasks.length}`;
-    addParagraph(text_task_count, results);
+    addToResults(text_task_count, "p");
 
-    addParagraph("Tasks:", results);
+    addToResults("Tasks (task, priority, status):", "p");
 
     for (let i = 0; i < tasks.length; i++)
     {
         let data = tasks[i];
         let text_task = `${data["task"]}, ${data["priority"]}, ${data["status"]}`;
-        addParagraph(text_task, results);
+        addToResults(text_task, "p");
     }
 }
 
-function addParagraph(message, element) {
-    const paragraph = document.createElement("p");
-    paragraph.textContent = message;
-    element.appendChild(paragraph);
+function addToResults(message, tag) {
+    const new_element = document.createElement(tag);
+    new_element.textContent = message;
+    results.appendChild(new_element);
 }
 
 taskForm.addEventListener("submit", updateOutput);
