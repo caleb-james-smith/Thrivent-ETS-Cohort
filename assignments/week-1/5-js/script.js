@@ -4,37 +4,60 @@ const taskForm = document.querySelector("#task-form");
 const task = document.querySelector("#task");
 const priority = document.querySelector("#priority");
 const status = document.querySelector("#status");
+const taskCount = document.querySelector("#task-count");
 const taskList = document.querySelector("#task-list");
+const results = document.querySelector("#results");
 
 const tasks = [];
 
 function updateOutput(event) {
+    console.log("Updating output...");
+    
+    // Prevent default form submission behavior.
     event.preventDefault();
     
-    console.log("Updating output...");
-
     const data = {
         "task": task.value,
         "priority": priority.value,
         "status": status.value
     };
-    tasks.push(data);
     
-    /*
-    for (let i = 0; i < tasks.length; i++)
-    {
-        showTask(data);
-    }
-    */
-   showTask(`${data["task"]}, ${data["priority"]}, ${data["status"]}`);
+    tasks.push(data);
+
+    // Remove all children (nodes).
+    results.replaceChildren();
+
+    showResults(tasks);
+
+    // updateTaskCount(tasks.length);
+    
+    // showTask(`${data["task"]}, ${data["priority"]}, ${data["status"]}`);
 
     console.log("Done!");
 }
 
-function showTask(message) {
+function updateTaskCount(num_tasks) {
+    taskCount.textContent = `Number of tasks: ${num_tasks}`;
+}
+
+function addParagraph(message, element) {
     const paragraph = document.createElement("p");
     paragraph.textContent = message;
-    taskList.appendChild(paragraph);
+    element.appendChild(paragraph);
+}
+
+function showResults(tasks) {
+    let text_task_count = `Number of tasks: ${tasks.length}`;
+    addParagraph(text_task_count, results);
+
+    addParagraph("Tasks:", results);
+
+    for (let i = 0; i < tasks.length; i++)
+    {
+        let data = tasks[i];
+        let text_task = `${data["task"]}, ${data["priority"]}, ${data["status"]}`;
+        addParagraph(text_task, results);
+    }
 }
 
 taskForm.addEventListener("submit", updateOutput);
