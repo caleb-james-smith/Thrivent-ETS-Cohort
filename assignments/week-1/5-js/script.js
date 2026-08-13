@@ -4,8 +4,6 @@ const taskForm = document.querySelector("#task-form");
 const task = document.querySelector("#task");
 const priority = document.querySelector("#priority");
 const status = document.querySelector("#status");
-const taskCount = document.querySelector("#task-count");
-const taskList = document.querySelector("#task-list");
 const results = document.querySelector("#results");
 
 const tasks = [];
@@ -29,21 +27,7 @@ function updateOutput(event) {
 
     showResults(tasks);
 
-    // updateTaskCount(tasks.length);
-    
-    // showTask(`${data["task"]}, ${data["priority"]}, ${data["status"]}`);
-
     console.log("Done!");
-}
-
-function updateTaskCount(num_tasks) {
-    taskCount.textContent = `Number of tasks: ${num_tasks}`;
-}
-
-function addParagraph(message, element) {
-    const paragraph = document.createElement("p");
-    paragraph.textContent = message;
-    element.appendChild(paragraph);
 }
 
 function showResults(tasks) {
@@ -58,6 +42,12 @@ function showResults(tasks) {
         let text_task = `${data["task"]}, ${data["priority"]}, ${data["status"]}`;
         addParagraph(text_task, results);
     }
+}
+
+function addParagraph(message, element) {
+    const paragraph = document.createElement("p");
+    paragraph.textContent = message;
+    element.appendChild(paragraph);
 }
 
 taskForm.addEventListener("submit", updateOutput);
