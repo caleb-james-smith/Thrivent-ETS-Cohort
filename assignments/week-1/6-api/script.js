@@ -33,6 +33,9 @@ async function getData(url) {
 }
 
 function updateResults(user_data) {
+    // Remove all children (nodes).
+    results.replaceChildren();
+
     const num_users = user_data.length;
     const text_num_users = `Number of users: ${num_users}`;
     addToResults(text_num_users, "p");
