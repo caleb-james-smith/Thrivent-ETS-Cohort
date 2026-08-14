@@ -1,0 +1,41 @@
+:root {
+    --background-color: #ddd;
+    --text-color: #222;
+    --button-color: #aaa;
+    --button-hover-color: #888;
+}
+
+.dark-mode {
+    --background-color: #222;
+    --text-color: #ddd;
+    --button-color: #444;
+    --button-hover-color: #666;
+}
+
+html, body {
+    height: 100%;
+    margin: 20px;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+button {
+    background-color: var(--button-color);
+    color: var(--text-color);
+    padding: 8px 16px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transform: scale(1);
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+button:hover {
+    background-color: var(--button-hover-color);
+    transform: scale(1.10);
+}
