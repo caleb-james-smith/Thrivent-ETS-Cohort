@@ -1,0 +1,50 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+.navbar {
+    background-color: #dddddd;
+    font-size: 1.5rem;
+}
+
+.navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 10px;
+    gap: 10px;
+}
+
+.navbar li {
+    flex: 0 0 auto;
+}
+
+form {
+    margin: 10px;
+    padding: 10px;
+}
+
+footer {
+    background-color: #dddddd;
+    text-align: center;
+}

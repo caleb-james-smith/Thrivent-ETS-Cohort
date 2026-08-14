@@ -1,0 +1,9 @@
+html, body {
+    height: 100%;
+    margin: 20px;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
