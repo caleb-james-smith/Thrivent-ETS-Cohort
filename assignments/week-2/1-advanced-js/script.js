@@ -15,18 +15,18 @@ const hobbiesElement = document.getElementById("hobbies");
 const user = {
     name: "Caleb Smith",
     age: 33,
-    isLoggedIn: false,
+    isLoggedIn: true,
     address: {
         city: "Lawrence",
         state: "Kansas"
     },
     preferences: {
-        theme: "dark-mode",
-        // nickname: "Jimmy"
-        nickname: ""
+        theme: "light-mode",
+        nickname: "Jimmy"
+        // nickname: ""
     },
-    // hobbies: ["ultimate frisbee", "swing dancing", "speedcubing", "chess", "StarCraft II"]
-    hobbies: []
+    hobbies: ["ultimate frisbee", "swing dancing", "speedcubing", "chess", "StarCraft II"]
+    // hobbies: []
 };
 
 function displayUserProfile(user) {
