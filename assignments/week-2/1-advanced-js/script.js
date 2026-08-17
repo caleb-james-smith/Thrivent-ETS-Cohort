@@ -1,3 +1,4 @@
+const toggleLoginButton = document.getElementById("toggle-login");
 const changeThemeButton = document.getElementById("change-theme");
 const loginStatusElement = document.getElementById("login-status");
 const welcomeElement = document.getElementById("welcome");
@@ -66,10 +67,20 @@ function displayHobbies(hobbies) {
     }
 }
 
+function toggleLogin() {
+    if (user.isLoggedIn) {
+        user.isLoggedIn = false;
+    } else {
+        user.isLoggedIn = true;
+    }
+    displayUserProfile(user);
+}
+
 function changeTheme() {
    document.body.classList.toggle("dark-mode");
 }
 
 displayUserProfile(user);
 
+toggleLoginButton.addEventListener("click", toggleLogin);
 changeThemeButton.addEventListener("click", changeTheme);
