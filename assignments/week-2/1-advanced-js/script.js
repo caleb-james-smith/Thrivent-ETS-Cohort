@@ -16,11 +16,11 @@ const user = {
     },
     preferences: {
         theme: "dark-mode",
-        nickname: "Jimmy"
-        // nickname: null
+        // nickname: "Jimmy"
+        nickname: ""
     },
-    hobbies: ["ultimate frisbee", "swing dancing", "speedcubing", "chess", "StarCraft II"]
-    // hobbies: []
+    // hobbies: ["ultimate frisbee", "swing dancing", "speedcubing", "chess", "StarCraft II"]
+    hobbies: []
 };
 
 function displayUserProfile(user) {
@@ -48,11 +48,8 @@ function displayWelcome(name) {
 }
 
 function displayNickname(nickname) {
-    if (nickname) {
-        nicknameElement.textContent = `Nickname: ${nickname}`;
-    } else {
-        nicknameElement.textContent = `Nickname: Guest`;
-    }
+    const nickname_text = nickname ? nickname : "Guest";
+    nicknameElement.textContent = `Nickname: ${nickname_text}`;
 }
 
 function displayAddress(city, state) {
@@ -60,11 +57,8 @@ function displayAddress(city, state) {
 }
 
 function displayHobbies(hobbies) {
-    if (hobbies) {
-        hobbiesElement.textContent = `Hobbies: ${hobbies.join(", ")}`;
-    } else {
-        hobbiesElement.textContent = `Hobbies: None`;
-    }
+    const hobbies_text = hobbies.length > 0 ? hobbies.join(", ") : "None";
+    hobbiesElement.textContent = `Hobbies: ${hobbies_text}`;
 }
 
 function toggleLogin() {
@@ -79,6 +73,13 @@ function toggleLogin() {
 function changeTheme() {
    document.body.classList.toggle("dark-mode");
 }
+
+// If theme preference is set to dark mode, change theme.
+(() => {
+    if (user.preferences.theme === "dark-mode") {
+        changeTheme();
+    }
+})();
 
 displayUserProfile(user);
 
