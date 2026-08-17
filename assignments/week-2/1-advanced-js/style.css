@@ -1,15 +1,15 @@
 :root {
     --background-color: #ddd;
     --text-color: #222;
-    --button-color: #aaa;
-    --button-hover-color: #888;
+    --button-color: #72b6ff;
+    --button-hover-color: #3d9bff;
 }
 
 .dark-mode {
     --background-color: #222;
     --text-color: #ddd;
-    --button-color: #444;
-    --button-hover-color: #666;
+    --button-color: #1d528a;
+    --button-hover-color: #35608e;
 }
 
 html, body {
