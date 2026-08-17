@@ -1,5 +1,11 @@
+// Buttons
 const toggleLoginButton = document.getElementById("toggle-login");
 const changeThemeButton = document.getElementById("change-theme");
+
+// Containers
+const userInfoContainer = document.getElementById("user-info-container");
+
+// Elements
 const loginStatusElement = document.getElementById("login-status");
 const welcomeElement = document.getElementById("welcome");
 const nicknameElement = document.getElementById("nickname");
@@ -9,7 +15,7 @@ const hobbiesElement = document.getElementById("hobbies");
 const user = {
     name: "Caleb Smith",
     age: 33,
-    isLoggedIn: true,
+    isLoggedIn: false,
     address: {
         city: "Lawrence",
         state: "Kansas"
@@ -25,11 +31,16 @@ const user = {
 
 function displayUserProfile(user) {
     displayLoginStatus(user.isLoggedIn);
+    displayWelcome(user.name);
+    displayNickname(user.preferences.nickname);
+    displayAddress(user.address.city, user.address.state);
+    displayHobbies(user.hobbies);
+
+    // Only show user info if the user is logged in
     if (user.isLoggedIn) {
-        displayWelcome(user.name);
-        displayNickname(user.preferences.nickname);
-        displayAddress(user.address.city, user.address.state);
-        displayHobbies(user.hobbies);
+        userInfoContainer.style.display = "block";
+    } else {
+        userInfoContainer.style.display = "none";
     }
 }
 
