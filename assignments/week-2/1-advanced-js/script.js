@@ -15,13 +15,13 @@ const hobbiesElement = document.getElementById("hobbies");
 const user = {
     name: "Caleb Smith",
     age: 33,
-    isLoggedIn: true,
+    isLoggedIn: false,
     address: {
         city: "Lawrence",
         state: "Kansas"
     },
     preferences: {
-        theme: "light-mode",
+        theme: "dark-mode",
         nickname: "Jimmy"
         // nickname: null
     },
@@ -31,18 +31,6 @@ const user = {
 
 function displayUserProfile(user) {
     displayLoginStatus(user.isLoggedIn);
-
-    // Version 1
-
-    // if (user.isLoggedIn) {
-    //     displayWelcome(user.name);
-    //     displayNickname(user.preferences.nickname);
-    //     displayAddress(user.address.city, user.address.state);
-    //     displayHobbies(user.hobbies);
-    // }
-
-    // Version 2
-
     displayWelcome(user.name);
     displayNickname(user.preferences.nickname);
     displayAddress(user.address.city, user.address.state);
