@@ -23,7 +23,7 @@ const user = {
     preferences: {
         theme: "light-mode",
         nickname: "Jimmy"
-        // nickname: ""
+        // nickname: null
     },
     hobbies: ["ultimate frisbee", "swing dancing", "speedcubing", "chess", "StarCraft II"]
     // hobbies: []
@@ -59,7 +59,7 @@ function displayWelcome(name) {
 }
 
 function displayNickname(nickname) {
-    const nickname_text = nickname ? nickname : "Guest";
+    const nickname_text = nickname ?? "Guest";
     nicknameElement.textContent = `Nickname: ${nickname_text}`;
 }
 
