@@ -1,12 +1,24 @@
+interface User {
+    id: number;
+    name: string;
+}
+
+interface Customer extends User {}
+
+interface Agent extends User {}
+
+type Priority = "low" | "medium" | "high";
+type Status = "open" | "in_progress" | "resolved";
+
 interface SupportTicket {
     id: number;
     title: string;
     description: string;
-    priority: number;
-    status: string;
-    createdBy: string;
-    assignedTo: string;
-    tags: string;
+    priority: Priority;
+    status: Status;
+    createdBy: Customer;
+    assignedTo: Agent;
+    tags: string[];
 };
 
 function runApp(): void {
@@ -17,37 +29,41 @@ function runApp(): void {
 }
 
 function createSupportTickets(): SupportTicket[] {
-    const ticket_1 = {
+    const ticket_1: SupportTicket = {
         id: 1,
-        title: "macOS not powering on",
-        description: "My macOS will not power on. The battery may be out of charge.",
-        priority: 3,
-        status: "Resolved",
-        createdBy: "Steven",
-        assignedTo: "Caleb",
-        tags: "Tags?",
+        title: "MacBook not powering on",
+        description: "My MacBook will not power on. The battery may be out of charge.",
+        priority: "high",
+        status: "resolved",
+        createdBy: {id: 1, name: "Katie"},
+        assignedTo: {id: 2, name: "Calvin"},
+        tags: ["MacBook", "power"],
     };
-    const ticket_2 = {
+
+    const ticket_2: SupportTicket = {
         id: 2,
         title: "Vim white background issue",
         description: "In a dark mode terminal, I am trying to use the delek colorscheme. However, this changes the background to white, which I don't want.",
-        priority: 1,
-        status: "Unresolved",
-        createdBy: "Steven",
-        assignedTo: "Caleb",
-        tags: "Tags?",
+        priority: "low",
+        status: "open",
+        createdBy: {id: 1, name: "Jimmy"},
+        assignedTo: {id: 2, name: "Caleb"},
+        tags: ["Vim", "terminal", "background"],
     };
-    const ticket_3 = {
+
+    const ticket_3: SupportTicket = {
         id: 3,
         title: "VS Code TS syntax highlighting not working",
         description: "In VS Code, TypeScript syntax highlighting is not working. For example, TS compiler errors are not showing up.",
-        priority: 2,
-        status: "Unresolved",
-        createdBy: "Steven",
-        assignedTo: "Caleb",
-        tags: "Tags?",
+        priority: "medium",
+        status: "in_progress",
+        createdBy: {id: 1, name: "Owen"},
+        assignedTo: {id: 2, name: "Steven"},
+        tags: ["VS Code", "TS", "TypeScript", "syntax"],
     };
+
     const supportTickets: SupportTicket[] = [ticket_1, ticket_2, ticket_3];
+
     return supportTickets;
 }
 
@@ -76,9 +92,9 @@ function printSupportTicketSummaries(supportTickets: SupportTicket[]): void {
         console.log(` - description: ${ticket.description}`);
         console.log(` - priority: ${ticket.priority}`);
         console.log(` - status: ${ticket.status}`);
-        console.log(` - createdBy: ${ticket.createdBy}`);
-        console.log(` - assignedTo: ${ticket.assignedTo}`);
-        console.log(` - tags: ${ticket.tags}`);
+        console.log(` - createdBy: ${ticket.createdBy.name}`);
+        console.log(` - assignedTo: ${ticket.assignedTo.name}`);
+        console.log(` - tags: ${ticket.tags.join(", ")}`);
         console.log();
     }
 }
