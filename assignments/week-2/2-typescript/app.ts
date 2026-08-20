@@ -4,6 +4,7 @@
 type Priority = "low" | "medium" | "high";
 type Status = "open" | "in_progress" | "resolved";
 type Subscription = "none" | "free" | "paid";
+type Ticket = SupportTicket | EscalatedSupportTicket;
 
 interface User {
     id: string | number;
@@ -28,7 +29,13 @@ interface SupportTicket {
     createdBy: Customer | Agent;
     assignedTo: Customer | Agent | "nobody";
     tags: string[];
-};
+}
+
+interface EscalatedSupportTicket extends SupportTicket {
+    escalatedBy: Agent;
+    escalationReason: string;
+    escalatedAt: Date;
+}
 
 // Users
 
@@ -75,13 +82,13 @@ const calvin: Agent = {
 };
 
 function runApp(): void {
-    const supportTickets: SupportTicket[] = createSupportTickets();
+    const tickets: Ticket[] = createTickets();
     printHeader();
-    printSupportTickets(supportTickets);
-    printSupportTicketSummaries(supportTickets);
+    printTickets(tickets);
+    printTicketSummaries(tickets);
 }
 
-function createSupportTickets(): SupportTicket[] {
+function createTickets(): Ticket[] {
     const ticket_1: SupportTicket = {
         id: 1001,
         title: "MacBook not powering on",
@@ -90,7 +97,7 @@ function createSupportTickets(): SupportTicket[] {
         status: "resolved",
         createdBy: katie,
         assignedTo: calvin,
-        tags: ["MacBook", "power"],
+        tags: ["MacBook", "power"]
     };
 
     const ticket_2: SupportTicket = {
@@ -101,7 +108,7 @@ function createSupportTickets(): SupportTicket[] {
         status: "open",
         createdBy: jimmy,
         assignedTo: caleb,
-        tags: ["Vim", "terminal", "background"],
+        tags: ["Vim", "terminal", "background"]
     };
 
     const ticket_3: SupportTicket = {
@@ -112,10 +119,10 @@ function createSupportTickets(): SupportTicket[] {
         status: "in_progress",
         createdBy: sam,
         assignedTo: steven,
-        tags: ["VS Code", "TS", "TypeScript", "syntax"],
+        tags: ["VS Code", "TS", "TypeScript", "syntax"]
     };
 
-    const ticket_4: SupportTicket = {
+    const ticket_4: EscalatedSupportTicket = {
         id: 1004,
         title: "External monitor not working",
         description: "I connected an external monitor to my MacBook. However, it is not displaying anything.",
@@ -124,11 +131,14 @@ function createSupportTickets(): SupportTicket[] {
         createdBy: jimmy,
         assignedTo: "nobody",
         tags: ["monitor", "MacBook"],
+        escalatedBy: steven,
+        escalationReason: "This is high priority, but nobody has been assigned.",
+        escalatedAt: new Date("2026-08-18T08:15:00")
     };
 
-    const supportTickets: SupportTicket[] = [ticket_1, ticket_2, ticket_3, ticket_4];
+    const tickets: Ticket[] = [ticket_1, ticket_2, ticket_3, ticket_4];
 
-    return supportTickets;
+    return tickets;
 }
 
 function printHeader(): void {
@@ -137,20 +147,20 @@ function printHeader(): void {
     console.log("----------------------");
 }
 
-function printSupportTickets(supportTickets: SupportTicket[]): void {
+function printTickets(tickets: Ticket[]): void {
     console.log();
-    console.log("Support Tickets:");
-    for (const ticket of supportTickets) {
-        console.log(` - ${ticket.title}`);
+    console.log("Tickets:");
+    for (const ticket of tickets) {
+        console.log(` - Ticket ${ticket.id}: ${ticket.title}`);
     }
     
     console.log();
-    console.log(`Number of support tickets: ${supportTickets.length}`);
+    console.log(`Number of tickets: ${tickets.length}`);
     console.log();
 }
 
-function printSupportTicketSummaries(supportTickets: SupportTicket[]): void {
-    for (const ticket of supportTickets) {
+function printTicketSummaries(tickets: Ticket[]): void {
+    for (const ticket of tickets) {
         console.log(`Ticket ${ticket.id}:`);
         console.log(` - title: ${ticket.title}`);
         console.log(` - description: ${ticket.description}`);
