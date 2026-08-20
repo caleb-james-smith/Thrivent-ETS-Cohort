@@ -173,6 +173,11 @@ function printTicketSummaries(tickets: Ticket[]): void {
             console.log(` - assignedTo: ${ticket.assignedTo}`);
         }
         console.log(` - tags: ${ticket.tags.join(", ")}`);
+        if ("escalatedBy" in ticket) {
+            console.log(` - escalatedBy: ${ticket.escalatedBy.name}`);
+            console.log(` - escalationReason: ${ticket.escalationReason}`);
+            console.log(` - escalatedAt: ${ticket.escalatedAt}`);
+        }
         console.log();
     }
 }
