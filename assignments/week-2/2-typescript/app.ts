@@ -4,19 +4,22 @@
 type Priority = "low" | "medium" | "high";
 type Status = "open" | "in_progress" | "resolved";
 type Subscription = "none" | "free" | "paid";
+type User = Customer | Agent;
 type Ticket = SupportTicket | EscalatedSupportTicket;
 
-interface User {
+interface Customer {
+    role: "customer";
     id: string | number;
     name: string;
     email: string;
-}
-
-interface Customer extends User {
     subscription: Subscription;
 }
 
-interface Agent extends User {
+interface Agent {
+    role: "agent";
+    id: string | number;
+    name: string;
+    email: string;
     admin: boolean;
 }
 
@@ -26,8 +29,8 @@ interface SupportTicket {
     description: string;
     priority: Priority;
     status: Status;
-    createdBy: Customer | Agent;
-    assignedTo: Customer | Agent | "nobody";
+    createdBy: User;
+    assignedTo: Agent | "nobody";
     tags: string[];
 }
 
@@ -37,9 +40,10 @@ interface EscalatedSupportTicket extends SupportTicket {
     escalatedAt: Date;
 }
 
-// Users
+// Customers
 
 const jimmy: Customer = {
+    role: "customer",
     id: 101,
     name: "Jimmy",
     email: "jimmy@gmail.com",
@@ -47,6 +51,7 @@ const jimmy: Customer = {
 };
 
 const katie: Customer = {
+    role: "customer",
     id: 102,
     name: "Katie",
     email: "katie@gmail.com",
@@ -54,13 +59,17 @@ const katie: Customer = {
 };
 
 const sam: Customer = {
+    role: "customer",
     id: 103,
     name: "Sam",
     email: "sam@gmail.com",
     subscription: "paid"
 };
 
+// Agents
+
 const steven: Agent = {
+    role: "agent",
     id: 501,
     name: "Steven",
     email: "steven@support.com",
@@ -68,6 +77,7 @@ const steven: Agent = {
 };
 
 const caleb: Agent = {
+    role: "agent",
     id: 502,
     name: "Caleb",
     email: "caleb@support.com",
@@ -75,6 +85,7 @@ const caleb: Agent = {
 };
 
 const calvin: Agent = {
+    role: "agent",
     id: 503,
     name: "Calvin",
     email: "calvin@support.com",
@@ -82,10 +93,14 @@ const calvin: Agent = {
 };
 
 function runApp(): void {
+    const currentUser: User = caleb;
     const tickets: Ticket[] = createTickets();
+    const myTickets: Ticket[] = getMyTickets(tickets, currentUser);
+    
     printHeader();
-    printTickets(tickets);
-    printTicketSummaries(tickets);
+    printUser(currentUser);
+    printTickets(myTickets);
+    printTicketSummaries(myTickets);
 }
 
 function createTickets(): Ticket[] {
@@ -147,8 +162,37 @@ function printHeader(): void {
     console.log("----------------------");
 }
 
-function printTickets(tickets: Ticket[]): void {
+function printUser(user: User): void {
     console.log();
+    console.log(`User: ${user.name}`);
+    console.log(`Role: ${user.role}`);
+    if (user.role === "agent") {
+        console.log(`Admin: ${user.admin}`);
+    }
+    console.log();
+}
+
+function getMyTickets(tickets: Ticket[], user: User): Ticket[] {
+    const myTickets: Ticket[] = [];
+    for (const ticket of tickets) {
+        if (user.role === "agent") {
+            if (user.admin) {
+                myTickets.push(ticket);
+            } else {
+                if (ticket.createdBy.id === user.id || (ticket.assignedTo !== "nobody" && ticket.assignedTo.id === user.id)) {
+                    myTickets.push(ticket);
+                }
+            }
+        } else {
+            if (ticket.createdBy.id === user.id) {
+                myTickets.push(ticket);
+            }
+        }
+    }
+    return myTickets;
+}
+
+function printTickets(tickets: Ticket[]): void {
     console.log("Tickets:");
     for (const ticket of tickets) {
         console.log(` - Ticket ${ticket.id}: ${ticket.title}`);
@@ -156,6 +200,8 @@ function printTickets(tickets: Ticket[]): void {
     
     console.log();
     console.log(`Number of tickets: ${tickets.length}`);
+    console.log();
+    console.log("----------------------");
     console.log();
 }
 
