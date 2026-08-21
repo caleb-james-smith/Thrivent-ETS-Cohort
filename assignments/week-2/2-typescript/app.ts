@@ -175,6 +175,7 @@ function printUser(user: User): void {
 function getMyTickets(tickets: Ticket[], user: User): Ticket[] {
     const myTickets: Ticket[] = [];
     for (const ticket of tickets) {
+        // TODO: Create function to determine if the user has permission to view the ticket
         if (user.role === "agent") {
             if (user.admin) {
                 myTickets.push(ticket);
