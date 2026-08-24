@@ -1,0 +1,65 @@
+:root {
+    --background-color: #ddd;
+    --text-color: #222;
+    --profile-background-color: #fff;
+    --menu-background-color: #fff;
+    --button-color: #72b6ff;
+    --button-hover-color: #3d9bff;
+}
+
+.dark-mode {
+    --background-color: #222;
+    --text-color: #ddd;
+    --profile-background-color: #000;
+    --menu-background-color: #000;
+    --button-color: #1d528a;
+    --button-hover-color: #35608e;
+}
+
+html, body {
+    height: 100%;
+    margin: 20px;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+.menu-container {
+    background-color: var(--menu-background-color);
+    /* border: 2px dashed blue; */
+    border-radius: 16px;
+    padding: 20px;
+    margin: 20px;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.profile-container {
+    background-color: var(--profile-background-color);
+    /* border: 2px dashed red; */
+    border-radius: 16px;
+    width: 50%;
+    padding: 20px;
+    margin: 20px;
+}
+
+button {
+    background-color: var(--button-color);
+    color: var(--text-color);
+    padding: 8px 16px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transform: scale(1);
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+button:hover {
+    background-color: var(--button-hover-color);
+    transform: scale(1.10);
+}
