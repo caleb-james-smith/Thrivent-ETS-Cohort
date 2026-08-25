@@ -6,7 +6,7 @@ import './styles/app.css';
 
 function App() {
   const userName: string = "Jimmy Schmidt";
-  const numCourses: number = 5;
+  const numCourses: number = 6;
 
   return (
     <>
@@ -17,6 +17,8 @@ function App() {
           <p>Number of courses: {numCourses}</p>
         </section>
         <section className="card-container">
+          <CourseCard />
+          <CourseCard />
           <CourseCard />
           <CourseCard />
           <CourseCard />

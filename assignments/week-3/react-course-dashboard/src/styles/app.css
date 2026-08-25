@@ -1,8 +1,8 @@
 :root {
-    --background: #eee;
+    --background: #ddd;
     --text: #222;
-    --card-background: #ccc;
-    --card-text: #222;
+    --card-background: #fff;
+    --card-text: #000;
 
     background: var(--background);
     color: var(--text);
@@ -21,10 +21,30 @@ body {
     border: 2px dashed black;
 }
 
+.navbar {
+    background-color: lightskyblue;
+    font-size: 1.5rem;
+}
+
+.navbar ul {
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 0;
+    padding: 10px;
+    gap: 50px;
+}
+
+.navbar li {
+    flex: 0 0 auto;
+}
+
 .card-container {
     width: 100%;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(3, 1fr);
     justify-items: center;
     align-items: center;
     border: 2px dashed black;
