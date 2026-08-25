@@ -8,7 +8,7 @@ import './styles/app.css';
 
 function App() {
   const userName: string = "Jimmy Schmidt";
-  const numCourses: number = 6;
+  const numCourses: number = courseData.length;
 
   return (
     <>
