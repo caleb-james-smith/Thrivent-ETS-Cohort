@@ -1,0 +1,45 @@
+:root {
+    --background: #eee;
+    --text: #222;
+    --card-background: #ccc;
+    --card-text: #222;
+
+    background: var(--background);
+    color: var(--text);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#root {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+body {
+    margin: 20px;
+    border: 2px dashed black;
+}
+
+.card-container {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+    align-items: center;
+    border: 2px dashed black;
+    margin: 25px;
+    padding: 25px;
+    gap: 25px;
+}
+
+.course-card {
+    background-color: var(--card-background);
+    color: var(--card-text);
+    height: 250px;
+    width: 250px;
+    margin: 25px;;
+    padding: 25px;
+    border: 2px dashed black;
+    border-radius: 10px;
+}
