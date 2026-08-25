@@ -1,6 +1,8 @@
 import Header from './components/Header.tsx';
-import CourseCard from './components/CourseCard.tsx';
 import Footer from './components/Footer.tsx';
+import { courseData } from './data/courses.ts';
+import CourseList from './components/CourseList.tsx';
+
 // import './App.css';
 import './styles/app.css';
 
@@ -17,12 +19,7 @@ function App() {
           <p>Number of courses: {numCourses}</p>
         </section>
         <section className="card-container">
-          <CourseCard />
-          <CourseCard />
-          <CourseCard />
-          <CourseCard />
-          <CourseCard />
-          <CourseCard />
+          <CourseList courses={courseData} />
         </section>
         <Footer />
       </div>

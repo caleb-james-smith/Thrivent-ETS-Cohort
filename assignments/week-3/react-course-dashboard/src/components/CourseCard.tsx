@@ -1,8 +1,12 @@
-export default function CourseCard() {
+import type { CourseProps } from './Interfaces.tsx';
+
+export default function CourseCard({ course }: CourseProps) {
     return (
-        <div className="course-card">
-            <h2>Example Course Card</h2>
-            <p>Description: This is an example course card.</p>
+        <div key={course.id} className="course-card">
+            <h2>{course.title}</h2>
+            <p>{course.description}</p>
+            <p>Duration: {course.duration} hours</p>
+            <p>Level: {course.level}</p>
         </div>
     );
 }
