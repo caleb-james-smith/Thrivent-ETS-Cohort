@@ -1,7 +1,7 @@
 export default function Header() {
     const dashboardTitle: string = "Courses Dashboard";
     return (
-        <div>
+        <>
             <nav className="navbar">
                 <ul>
                     <li>Dashboard</li>
@@ -11,6 +11,6 @@ export default function Header() {
                 </ul>
             </nav>
             <h1>{dashboardTitle}</h1>
-        </div>
+        </>
     );
 }

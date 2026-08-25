@@ -14,17 +14,21 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
+    width: 100%;
+    padding: 0;
+    margin: 0;
 }
 
 body {
-    padding: 20px;
-    margin: 20px;
-    border: 2px dashed black;
+    padding: 0;
+    margin: 0;
+    /* border: 2px dashed black; */
 }
 
 .navbar {
     background-color: lightskyblue;
     font-size: 1.5rem;
+    width: 100%;
 }
 
 .navbar ul {
@@ -48,7 +52,7 @@ body {
     grid-template-columns: repeat(3, 1fr);
     justify-items: center;
     align-items: center;
-    border: 2px dashed black;
+    /* border: 2px dashed black; */
     padding: 25px;
     margin: 0;
     gap: 25px;
