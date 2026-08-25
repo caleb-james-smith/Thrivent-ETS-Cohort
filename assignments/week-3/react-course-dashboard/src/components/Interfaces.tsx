@@ -4,6 +4,7 @@ export interface Course {
     description: string;
     duration: number;
     level: number;
+    featured?: boolean;
 }
 
 export interface CourseProps {

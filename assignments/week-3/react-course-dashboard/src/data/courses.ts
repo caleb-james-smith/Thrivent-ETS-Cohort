@@ -20,6 +20,7 @@ export const courseData: Course[] = [
         title: "Modern Physics",
         description: "This course is an introduction to modern physics. The course introduces special relativity, quantum mechanics, wave mechanics, atomic physics, nuclear physics, and particle physics.",
         duration: 4,
-        level: 200
+        level: 200,
+        featured: true
     }
 ];
