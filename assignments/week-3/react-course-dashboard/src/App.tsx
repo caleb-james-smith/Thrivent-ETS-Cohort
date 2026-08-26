@@ -9,6 +9,7 @@ import { courseData } from './data/courses.ts';
 import './styles/app.css';
 
 function App() {
+  const dashboardTitle: string = "Courses Dashboard";
   const userName: string = "Jimmy Schmidt";
   const numCourses: number = courseData.length;
   const [searchTerm, setSearchTerm] = useState<string>('');
@@ -25,17 +26,20 @@ function App() {
 
   return (
     <>
-      <Header />
+      <Header title={dashboardTitle} />
       <section>
         <p>Name: {userName}</p>
-        <p>Number of courses: {numCourses}</p>
+        <p>Number of courses (total): {numCourses}</p>
       </section>
+      <label htmlFor="search">Search courses:</label>
       <input
         type="text"
+        name="search"
         placeholder="Search courses..."
         value={searchTerm}
         onChange={handleSearchChange}
       />
+      <p>Number of matching courses: {filteredCourses.length} </p>
       <CourseList courses={filteredCourses} />
       <Footer />
     </>

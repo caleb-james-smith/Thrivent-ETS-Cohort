@@ -1,16 +1,15 @@
-export default function Header() {
-    const dashboardTitle: string = "Courses Dashboard";
+export default function Header({ title }: { title: string }) {
     return (
         <>
             <nav className="navbar">
                 <ul>
-                    <li>Dashboard</li>
+                    <li>Courses</li>
                     <li>Majors</li>
                     <li>Records</li>
                     <li>Graduation</li>
                 </ul>
             </nav>
-            <h1>{dashboardTitle}</h1>
+            <h1>{title}</h1>
         </>
     );
 }

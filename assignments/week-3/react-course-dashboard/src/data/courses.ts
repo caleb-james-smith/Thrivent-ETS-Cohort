@@ -9,9 +9,23 @@ export const courseData: Course[] = [
         level: 100
     },
     {
+        id: 121,
+        title: "Calculus 2",
+        description: "This calculus course covers infinite sequences and series, advanced integration, parametric equations, polar coordinates, and differential equations.",
+        duration: 3,
+        level: 100
+    },
+    {
         id: 130,
         title: "Physics 1",
         description: "This course focuses on classical mechanics. The topics include kinematics, Newton's Laws, force, momentum, energy, rotation, oscillation, and fluids.",
+        duration: 4,
+        level: 100
+    },
+    {
+        id: 131,
+        title: "Physics 2",
+        description: "This course focuses on electricity, magnetism, circuits, waves, and optics.",
         duration: 4,
         level: 100
     },
@@ -21,6 +35,14 @@ export const courseData: Course[] = [
         description: "This course is an introduction to modern physics. The course introduces special relativity, quantum mechanics, wave mechanics, atomic physics, nuclear physics, and particle physics.",
         duration: 4,
         level: 200,
+        featured: true
+    },
+    {
+        id: 360,
+        title: "Quantum Mechanics 1",
+        description: "This course covers the foundations of quantum mechanics. The topics include dirac notation, linear operators, observables, spin, wave mechanics, the Schrödinger Equation, Heisenberg's uncertainty principle, and three dimensional systems.",
+        duration: 3,
+        level: 300,
         featured: true
     }
 ];
