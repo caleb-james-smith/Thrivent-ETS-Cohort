@@ -12,11 +12,11 @@ function App() {
   const dashboardTitle: string = "Courses Dashboard";
   const userName: string = "Jimmy Schmidt";
   const numCourses: number = courseData.length;
-  
+
   // Note: Set initial search term to ""
   const [searchTerm, setSearchTerm] = useState<string>("");
-  
-  // Note: Set initial selected level to All Levels"
+
+  // Note: Set initial selected level to "All Levels"
   const [selectedLevel, setSelectedLevel] = useState<string>("All Levels");
 
   // When the search input changes, update the search term.
@@ -33,11 +33,11 @@ function App() {
     setSelectedLevel(event.target.value);
   };
 
-  // Filter courses based on search term.
+  // Filter courses based on the search term and the selected level.
   const filteredCourses: Course[] = courseData.filter(
     (course) =>
       course.title.toLowerCase().includes(searchTerm.toLowerCase()) &&
-    (selectedLevel === "All Levels" || selectedLevel === course.level),
+      (selectedLevel === "All Levels" || selectedLevel === course.level),
   );
 
   console.log("searchTerm:", searchTerm);
