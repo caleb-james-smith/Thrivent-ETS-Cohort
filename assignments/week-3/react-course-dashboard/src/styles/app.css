@@ -22,7 +22,7 @@
 body {
     padding: 0;
     margin: 0;
-    /* border: 2px dashed black; */
+    /* border: 2px dashed #000; */
 }
 
 .navbar {
@@ -47,13 +47,29 @@ body {
     flex: 0 0 auto;
 }
 
-.card-container {
+.info-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
     width: 100%;
+    border: 2px solid #000;
+    padding: 0;
+    margin: 0;
+}
+
+.info-container * {
+    padding: 5px 25px;
+    margin: 0;
+}
+
+.card-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     justify-items: center;
     align-items: center;
-    /* border: 2px dashed black; */
+    width: 100%;
+    /* border: 2px dashed #000; */
     padding: 25px;
     margin: 0;
     gap: 25px;

@@ -27,19 +27,21 @@ function App() {
   return (
     <>
       <Header title={dashboardTitle} />
-      <section>
+      <section className="info-container">
         <p>Name: {userName}</p>
         <p>Number of courses (total): {numCourses}</p>
+        <form>
+          <label htmlFor="search">Search courses:</label>
+          <input
+            type="text"
+            name="search"
+            placeholder="Search courses..."
+            value={searchTerm}
+            onChange={handleSearchChange}
+            />
+        </form>
+        <p>Number of matching courses: {filteredCourses.length} </p>
       </section>
-      <label htmlFor="search">Search courses:</label>
-      <input
-        type="text"
-        name="search"
-        placeholder="Search courses..."
-        value={searchTerm}
-        onChange={handleSearchChange}
-      />
-      <p>Number of matching courses: {filteredCourses.length} </p>
       <CourseList courses={filteredCourses} />
       <Footer />
     </>
