@@ -25,6 +25,23 @@ body {
     /* border: 2px dashed #000; */
 }
 
+button {
+    background-color: #b4e5ff;
+    color: #000;
+    font-size: 16px;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transform: scale(1);
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+button:hover {
+    background-color: #76cfff;
+    transform: scale(1.10);
+}
+
 .navbar {
     background-color: #fff;
     border: 2px solid #000;
@@ -78,8 +95,8 @@ body {
 .course-card {
     background-color: var(--card-background);
     color: var(--card-text);
-    height: 300px;
-    width: 300px;
+    height: 400px;
+    width: 350px;
     margin: 0;
     padding: 25px;
     border: 2px solid #000;

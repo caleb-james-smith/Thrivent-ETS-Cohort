@@ -16,3 +16,9 @@ export interface CourseProps {
 export interface CourseListProps {
     courses: Course[];
 }
+
+export interface CourseDetailsProps {
+    description: string;
+    duration: number;
+    level: Level;
+}
