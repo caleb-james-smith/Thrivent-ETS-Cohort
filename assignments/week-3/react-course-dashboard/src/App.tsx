@@ -12,8 +12,12 @@ function App() {
   const dashboardTitle: string = "Courses Dashboard";
   const userName: string = "Jimmy Schmidt";
   const numCourses: number = courseData.length;
+  
+  // Note: Set initial search term to ""
   const [searchTerm, setSearchTerm] = useState<string>("");
-  const [selectedLevel, setSelectedLevel] = useState<string>("");
+  
+  // Note: Set initial selected level to All Levels"
+  const [selectedLevel, setSelectedLevel] = useState<string>("All Levels");
 
   // When the search input changes, update the search term.
   const handleSearchChange = (
