@@ -1,9 +1,11 @@
+export type Level = "Beginner" | "Intermediate" | "Advanced";
+
 export interface Course {
     id: number;
     title: string;
     description: string;
     duration: number;
-    level: number;
+    level: Level;
     featured?: boolean;
 }
 

@@ -13,15 +13,22 @@ function App() {
   const userName: string = "Jimmy Schmidt";
   const numCourses: number = courseData.length;
   const [searchTerm, setSearchTerm] = useState<string>('');
+  const [selectedLevel, setSelectedLevel] = useState<string>('');
 
   // When the search input changes, update the search term.
   const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
     setSearchTerm(event.target.value);
   };
 
+  // When the selected level changes, update the selected level.
+  const handleLevelChange = (event: React.ChangeEvent<HTMLSelectElement>): void => {
+    setSelectedLevel(event.target.value);
+  };
+
   // Filter courses based on search term.
   const filteredCourses: Course[] = courseData.filter((course) =>
-    course.title.toLowerCase().includes(searchTerm.toLowerCase())
+    course.title.toLowerCase().includes(searchTerm.toLowerCase()) &&
+    (selectedLevel === "All Levels" || selectedLevel === course.level)
   );
 
   return (
@@ -39,6 +46,17 @@ function App() {
             value={searchTerm}
             onChange={handleSearchChange}
             />
+          <label htmlFor="level">Select level:</label>
+          <select
+            name="level"
+            value={selectedLevel}
+            onChange={handleLevelChange}
+          >
+            <option value="All Levels">All Levels</option>
+            <option value="Beginner">Beginner</option>
+            <option value="Intermediate">Intermediate</option>
+            <option value="Advanced">Advanced</option>
+          </select>
         </form>
         <p>Number of matching courses: {filteredCourses.length} </p>
       </section>
