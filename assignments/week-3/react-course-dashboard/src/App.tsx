@@ -19,6 +19,9 @@ function App() {
   // Note: Set initial selected level to "All Levels"
   const [selectedLevel, setSelectedLevel] = useState<string>("All Levels");
 
+  // Note: Set initial selected course to null
+  const [selectedCourse, setSelectedCourse] = useState<Course | null>(null);
+
   // When the search input changes, update the search term.
   const handleSearchChange = (
     event: React.ChangeEvent<HTMLInputElement>,
@@ -33,6 +36,11 @@ function App() {
     setSelectedLevel(event.target.value);
   };
 
+  // When the selected course changes, update the selected course.
+  const handleSelectedCourseChange = (course: Course): void => {
+    setSelectedCourse(course);
+  };
+
   // Filter courses based on the search term and the selected level.
   const filteredCourses: Course[] = courseData.filter(
     (course) =>
@@ -42,8 +50,9 @@ function App() {
 
   console.log("searchTerm:", searchTerm);
   console.log("selectedLevel:", selectedLevel);
-  console.log("courseData:", courseData);
-  console.log("filteredCourses:", filteredCourses);
+  console.log("selectedCourse:", selectedCourse);
+  // console.log("courseData:", courseData);
+  // console.log("filteredCourses:", filteredCourses);
 
   return (
     <>
@@ -73,8 +82,9 @@ function App() {
           </select>
         </form>
         <p>Number of matching courses: {filteredCourses.length} </p>
+        <button type="button" onClick={() => setSelectedCourse(null)}>Clear course selection</button>
       </section>
-      <CourseList courses={filteredCourses} />
+      <CourseList courses={filteredCourses} selectedCourse={selectedCourse} updateSelectedCourse={handleSelectedCourseChange} />
       <Footer />
     </>
   );

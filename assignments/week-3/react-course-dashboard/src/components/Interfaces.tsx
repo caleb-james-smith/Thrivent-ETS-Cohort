@@ -11,10 +11,14 @@ export interface Course {
 
 export interface CourseProps {
     course: Course;
+    selectedCourse: Course | null;
+    updateSelectedCourse: (course: Course) => void;
 }
 
 export interface CourseListProps {
     courses: Course[];
+    selectedCourse: Course | null;
+    updateSelectedCourse: (course: Course) => void;
 }
 
 export interface CourseDetailsProps {
