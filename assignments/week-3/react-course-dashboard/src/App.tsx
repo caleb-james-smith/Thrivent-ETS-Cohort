@@ -1,35 +1,45 @@
-import React, { useState } from 'react';
-import Header from './components/Header.tsx';
-import Footer from './components/Footer.tsx';
-import CourseList from './components/CourseList.tsx';
-import type { Course } from './components/Interfaces.tsx';
-import { courseData } from './data/courses.ts';
+import React, { useState } from "react";
+import Header from "./components/Header.tsx";
+import Footer from "./components/Footer.tsx";
+import CourseList from "./components/CourseList.tsx";
+import type { Course } from "./components/Interfaces.tsx";
+import { courseData } from "./data/courses.ts";
 
 // import './App.css';
-import './styles/app.css';
+import "./styles/app.css";
 
 function App() {
   const dashboardTitle: string = "Courses Dashboard";
   const userName: string = "Jimmy Schmidt";
   const numCourses: number = courseData.length;
-  const [searchTerm, setSearchTerm] = useState<string>('');
-  const [selectedLevel, setSelectedLevel] = useState<string>('');
+  const [searchTerm, setSearchTerm] = useState<string>("");
+  const [selectedLevel, setSelectedLevel] = useState<string>("");
 
   // When the search input changes, update the search term.
-  const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
+  const handleSearchChange = (
+    event: React.ChangeEvent<HTMLInputElement>,
+  ): void => {
     setSearchTerm(event.target.value);
   };
 
   // When the selected level changes, update the selected level.
-  const handleLevelChange = (event: React.ChangeEvent<HTMLSelectElement>): void => {
+  const handleLevelChange = (
+    event: React.ChangeEvent<HTMLSelectElement>,
+  ): void => {
     setSelectedLevel(event.target.value);
   };
 
   // Filter courses based on search term.
-  const filteredCourses: Course[] = courseData.filter((course) =>
-    course.title.toLowerCase().includes(searchTerm.toLowerCase()) &&
-    (selectedLevel === "All Levels" || selectedLevel === course.level)
+  const filteredCourses: Course[] = courseData.filter(
+    (course) =>
+      course.title.toLowerCase().includes(searchTerm.toLowerCase()) &&
+    (selectedLevel === "All Levels" || selectedLevel === course.level),
   );
+
+  console.log("searchTerm:", searchTerm);
+  console.log("selectedLevel:", selectedLevel);
+  console.log("courseData:", courseData);
+  console.log("filteredCourses:", filteredCourses);
 
   return (
     <>
@@ -45,7 +55,7 @@ function App() {
             placeholder="Search courses..."
             value={searchTerm}
             onChange={handleSearchChange}
-            />
+          />
           <label htmlFor="level">Select level:</label>
           <select
             name="level"
@@ -66,4 +76,4 @@ function App() {
   );
 }
 
-export default App
+export default App;
