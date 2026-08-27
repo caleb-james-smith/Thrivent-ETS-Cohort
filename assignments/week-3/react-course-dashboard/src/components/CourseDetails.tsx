@@ -1,9 +1,6 @@
 import type { CourseDetailsProps } from "./Interfaces";
 
 export default function CourseDetails({
-  //   description,
-  //   duration,
-  //   level,
   course,
   enrolledCourses,
   updateEnrolledCourses,

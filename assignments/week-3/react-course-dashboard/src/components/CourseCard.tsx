@@ -21,7 +21,6 @@ export default function CourseCard({
       </button>
       {selectedCourse && selectedCourse.id === course.id && (
         <CourseDetails
-        //   {...course}
           course={course}
           enrolledCourses={enrolledCourses}
           updateEnrolledCourses={updateEnrolledCourses}

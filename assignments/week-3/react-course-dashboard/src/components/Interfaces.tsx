@@ -26,9 +26,6 @@ export interface CourseProps {
 }
 
 export interface CourseDetailsProps {
-//   description: string;
-//   duration: number;
-//   level: Level;
   course: Course;
   enrolledCourses: Course[];
   updateEnrolledCourses: (course: Course) => void
