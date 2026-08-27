@@ -4,7 +4,9 @@ import CourseCard from "./CourseCard.tsx";
 export default function CourseList({
   courses,
   selectedCourse,
+  enrolledCourses,
   updateSelectedCourse,
+  updateEnrolledCourses,
 }: CourseListProps) {
   function renderCourseList() {
     if (courses.length > 0) {
@@ -13,7 +15,9 @@ export default function CourseList({
           key={course.id}
           course={course}
           selectedCourse={selectedCourse}
+          enrolledCourses={enrolledCourses}
           updateSelectedCourse={updateSelectedCourse}
+          updateEnrolledCourses={updateEnrolledCourses}
         />
       ));
     } else {

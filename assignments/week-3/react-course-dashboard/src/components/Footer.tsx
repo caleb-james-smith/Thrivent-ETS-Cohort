@@ -1,7 +1,3 @@
 export default function Footer() {
-    return (
-        <div>
-            <footer>Example Footer</footer>
-        </div>
-    );
+  return <footer>Created by Caleb Smith (2026)</footer>;
 }

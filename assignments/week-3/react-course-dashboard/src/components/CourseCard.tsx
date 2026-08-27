@@ -4,7 +4,9 @@ import CourseDetails from "./CourseDetails.tsx";
 export default function CourseCard({
   course,
   selectedCourse,
+  enrolledCourses,
   updateSelectedCourse,
+  updateEnrolledCourses,
 }: CourseProps) {
   return (
     <div className="course-card">
@@ -18,7 +20,12 @@ export default function CourseCard({
         View Details
       </button>
       {selectedCourse && selectedCourse.id === course.id && (
-        <CourseDetails {...course} />
+        <CourseDetails
+        //   {...course}
+          course={course}
+          enrolledCourses={enrolledCourses}
+          updateEnrolledCourses={updateEnrolledCourses}
+        />
       )}
     </div>
   );

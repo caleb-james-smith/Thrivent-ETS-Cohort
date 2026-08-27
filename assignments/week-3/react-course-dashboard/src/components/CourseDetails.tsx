@@ -1,15 +1,34 @@
 import type { CourseDetailsProps } from "./Interfaces";
 
 export default function CourseDetails({
-  description,
-  duration,
-  level,
+  //   description,
+  //   duration,
+  //   level,
+  course,
+  enrolledCourses,
+  updateEnrolledCourses,
 }: CourseDetailsProps) {
+  let enrolled: boolean = false;
+  for (const enrolledCourse of enrolledCourses) {
+    if (course.id === enrolledCourse.id) {
+      enrolled = true;
+    }
+  }
   return (
     <>
-      <p>{description}</p>
-      <p>Duration: {duration} hours</p>
-      <p>Level: {level}</p>
+      <p>{course.description}</p>
+      <p>Duration: {course.duration} hours</p>
+      <p>Level: {course.level}</p>
+      <button
+        type="button"
+        disabled={enrolled}
+        onClick={() => {
+          updateEnrolledCourses(course);
+        }}
+      >
+        Enroll
+      </button>
+      {enrolled && <p>You are enrolled in this course!</p>}
     </>
   );
 }

@@ -9,20 +9,27 @@ export interface Course {
   featured?: boolean;
 }
 
-export interface CourseProps {
-  course: Course;
-  selectedCourse: Course | null;
-  updateSelectedCourse: (course: Course) => void;
-}
-
 export interface CourseListProps {
   courses: Course[];
   selectedCourse: Course | null;
+  enrolledCourses: Course[];
   updateSelectedCourse: (course: Course) => void;
+  updateEnrolledCourses: (course: Course) => void
+}
+
+export interface CourseProps {
+  course: Course;
+  selectedCourse: Course | null;
+  enrolledCourses: Course[];
+  updateSelectedCourse: (course: Course) => void;
+  updateEnrolledCourses: (course: Course) => void
 }
 
 export interface CourseDetailsProps {
-  description: string;
-  duration: number;
-  level: Level;
+//   description: string;
+//   duration: number;
+//   level: Level;
+  course: Course;
+  enrolledCourses: Course[];
+  updateEnrolledCourses: (course: Course) => void
 }
