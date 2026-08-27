@@ -47,17 +47,25 @@ function App() {
 
   // When the user enrolls in a course, update the array of enrolled courses.
   const handleEnrolledCoursesChange = (course: Course): void => {
-    console.log(`Handling enrollment update for course: id=${course.id}, title=${course.title}`);
+    if (verbose) {
+      console.log(
+        `Handling enrollment update for course: id=${course.id}, title=${course.title}`,
+      );
+    }
     // Check if the course is already in a enrolled course array before adding it.
     for (const enrolledCourse of enrolledCourses) {
       if (course.id === enrolledCourse.id) {
         return;
       }
     }
-    console.log(`Enrolling in course: id=${course.id}, title=${course.title}`)
+    if (verbose) {
+      console.log(
+        `Enrolling in course: id=${course.id}, title=${course.title}`,
+      );
+    }
     const addedCourseArray: Course[] = [course];
     setEnrolledCourses([...enrolledCourses, ...addedCourseArray]);
-  }
+  };
 
   // Filter courses based on the search term and the selected level.
   const filteredCourses: Course[] = courseData.filter(
@@ -65,6 +73,16 @@ function App() {
       course.title.toLowerCase().includes(searchTerm.toLowerCase()) &&
       (selectedLevel === "All Levels" || selectedLevel === course.level),
   );
+
+  // Reset all filters, selections, and enrollments.
+  const resetEverything = (): void => {
+    console.log("Resetting everything...");
+    setSearchTerm("");
+    setSelectedLevel("All Levels");
+    setSelectedCourse(null);
+    setEnrolledCourses([]);
+    console.log("Reset complete!");
+  }
 
   if (verbose) {
     console.log("searchTerm:", searchTerm);
@@ -104,14 +122,19 @@ function App() {
         </form>
         <p>Number of courses available (total): {numCourses}</p>
         <p>Number of courses matching filters: {filteredCourses.length}</p>
-        <button type="button" onClick={() => setSelectedCourse(null)}>
-          Clear Course Selection
-        </button>
+        <div className="button-container">
+          <button type="button" onClick={() => resetEverything}>
+            Reset Everything
+          </button>
+          <button type="button" onClick={() => setSelectedCourse(null)}>
+            Clear Course Selection
+          </button>
+        </div>
       </section>
       <CourseList
         courses={filteredCourses}
         selectedCourse={selectedCourse}
-        enrolledCourses = {enrolledCourses}
+        enrolledCourses={enrolledCourses}
         updateSelectedCourse={handleSelectedCourseChange}
         updateEnrolledCourses={handleEnrolledCoursesChange}
       />
