@@ -76,7 +76,6 @@ function App() {
 
   // Reset all filters, selections, and enrollments.
   function resetEverything(): void {
-  // const resetEverything = (): void => {
     console.log("Resetting everything...");
     setSearchTerm("");
     setSelectedLevel("All Levels");
@@ -125,9 +124,6 @@ function App() {
         <p>Number of courses matching filters: {filteredCourses.length}</p>
         <div className="button-container">
           <button type="button" onClick={resetEverything}>
-          {/* <button type="button" onClick={resetEverything()}>
-          <button type="button" onClick={(() => {resetEverything})}>
-          <button type="button" onClick={(() => {resetEverything()})}> */}
             Reset Everything
           </button>
           <button type="button" onClick={() => setSelectedCourse(null)}>
