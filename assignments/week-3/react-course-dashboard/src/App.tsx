@@ -84,7 +84,7 @@ function App() {
             <option value="Advanced">Advanced</option>
           </select>
         </form>
-        <p>Number of matching courses: {filteredCourses.length} </p>
+        <p>Number of matching courses: {filteredCourses.length}</p>
         <button type="button" onClick={() => setSelectedCourse(null)}>
           Clear Course Selection
         </button>

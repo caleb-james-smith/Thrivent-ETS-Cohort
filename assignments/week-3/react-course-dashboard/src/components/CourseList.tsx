@@ -6,16 +6,19 @@ export default function CourseList({
   selectedCourse,
   updateSelectedCourse,
 }: CourseListProps) {
-  return (
-    <section className="card-container">
-      {courses.map((course) => (
+  function renderCourseList() {
+    if (courses.length > 0) {
+      return courses.map((course) => (
         <CourseCard
           key={course.id}
           course={course}
           selectedCourse={selectedCourse}
           updateSelectedCourse={updateSelectedCourse}
         />
-      ))}
-    </section>
-  );
+      ));
+    } else {
+      return <p>No courses match your search.</p>;
+    }
+  }
+  return <section className="card-container">{renderCourseList()}</section>;
 }
