@@ -9,6 +9,7 @@ import { courseData } from "./data/courses.ts";
 import "./styles/app.css";
 
 function App() {
+  const verbose: boolean = false;
   const dashboardTitle: string = "Courses Dashboard";
   const userName: string = "Jimmy Schmidt";
   const numCourses: number = courseData.length;
@@ -48,11 +49,13 @@ function App() {
       (selectedLevel === "All Levels" || selectedLevel === course.level),
   );
 
-  console.log("searchTerm:", searchTerm);
-  console.log("selectedLevel:", selectedLevel);
-  console.log("selectedCourse:", selectedCourse);
-  // console.log("courseData:", courseData);
-  // console.log("filteredCourses:", filteredCourses);
+  if (verbose) {
+    console.log("searchTerm:", searchTerm);
+    console.log("selectedLevel:", selectedLevel);
+    console.log("selectedCourse:", selectedCourse);
+    // console.log("courseData:", courseData);
+    // console.log("filteredCourses:", filteredCourses);
+  }
 
   return (
     <>
@@ -82,9 +85,15 @@ function App() {
           </select>
         </form>
         <p>Number of matching courses: {filteredCourses.length} </p>
-        <button type="button" onClick={() => setSelectedCourse(null)}>Clear course selection</button>
+        <button type="button" onClick={() => setSelectedCourse(null)}>
+          Clear Course Selection
+        </button>
       </section>
-      <CourseList courses={filteredCourses} selectedCourse={selectedCourse} updateSelectedCourse={handleSelectedCourseChange} />
+      <CourseList
+        courses={filteredCourses}
+        selectedCourse={selectedCourse}
+        updateSelectedCourse={handleSelectedCourseChange}
+      />
       <Footer />
     </>
   );
