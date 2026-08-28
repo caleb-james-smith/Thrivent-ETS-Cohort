@@ -1,3 +1,5 @@
+@import "tailwindcss";
+
 :root {
     --background: #fff;
     --text: #000;
@@ -85,7 +87,8 @@ footer {
     align-items: flex-start;
     width: 100%;
     border: 2px solid #000;
-    padding: 0;
+    border-radius: 10px;
+    padding: 25px;
     margin: 0;
 }
 
@@ -116,8 +119,8 @@ footer {
 .course-card {
     background-color: var(--card-background);
     color: var(--card-text);
-    height: 400px;
-    width: 350px;
+    height: 500px;
+    width: 400px;
     margin: 0;
     padding: 25px;
     border: 2px solid #000;

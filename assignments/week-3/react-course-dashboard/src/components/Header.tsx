@@ -9,7 +9,7 @@ export default function Header({ title }: { title: string }) {
                     <li>Graduation</li>
                 </ul>
             </nav>
-            <h1>{title}</h1>
+            <h1 className="font-bold text-5xl text-gray-800 p-5">{title}</h1>
         </>
     );
 }

@@ -99,6 +99,8 @@ function App() {
       <section className="info-container">
         <p>Name: {userName}</p>
         <p>Number of enrolled courses: {enrolledCourses.length}</p>
+        <p>Number of courses available (total): {numCourses}</p>
+        <p>Number of courses matching filters: {filteredCourses.length}</p>
         <form>
           <label htmlFor="search">Search courses:</label>
           <input
@@ -120,8 +122,6 @@ function App() {
             <option value="Advanced">Advanced</option>
           </select>
         </form>
-        <p>Number of courses available (total): {numCourses}</p>
-        <p>Number of courses matching filters: {filteredCourses.length}</p>
         <div className="button-container">
           <button type="button" onClick={resetEverything}>
             Reset Everything

@@ -5,6 +5,7 @@ export default function CourseDetails({
   enrolledCourses,
   updateEnrolledCourses,
 }: CourseDetailsProps) {
+  // Check if the user is enrolled to this course.
   let enrolled: boolean = false;
   for (const enrolledCourse of enrolledCourses) {
     if (course.id === enrolledCourse.id) {
@@ -12,7 +13,7 @@ export default function CourseDetails({
     }
   }
   return (
-    <>
+    <div className="p-2">
       <p>{course.description}</p>
       <p>Duration: {course.duration} hours</p>
       <p>Level: {course.level}</p>
@@ -26,6 +27,6 @@ export default function CourseDetails({
         Enroll
       </button>
       {enrolled && <p>You are enrolled in this course!</p>}
-    </>
+    </div>
   );
 }
