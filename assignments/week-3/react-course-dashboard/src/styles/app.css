@@ -50,6 +50,15 @@ button:disabled {
     cursor: not-allowed;
 }
 
+#reset-button {
+    background-color: #fe8e8e;
+}
+
+#reset-button:hover:not(:disabled) {
+    background-color: #fe5d5d;
+    transform: scale(1.10);
+}
+
 .navbar {
     background-color: #ddd;
     border: 2px solid #000;

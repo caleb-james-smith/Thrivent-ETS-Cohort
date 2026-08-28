@@ -123,7 +123,7 @@ function App() {
           </select>
         </form>
         <div className="button-container">
-          <button type="button" onClick={resetEverything}>
+          <button type="button" id="reset-button" onClick={resetEverything}>
             Reset Everything
           </button>
           <button type="button" onClick={() => setSelectedCourse(null)}>
