@@ -13,7 +13,7 @@ export default function CourseDetails({
     }
   }
   return (
-    <div className="flex flex-col items-start p-2 gap-3">
+    <div className="flex flex-col items-start gap-2">
       <p>{course.description}</p>
       <p>Duration: {course.duration} hours</p>
       <p>Level: {course.level}</p>
