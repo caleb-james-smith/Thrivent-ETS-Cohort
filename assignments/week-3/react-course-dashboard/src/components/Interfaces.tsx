@@ -14,7 +14,7 @@ export interface CourseListProps {
   selectedCourse: Course | null;
   enrolledCourses: Course[];
   updateSelectedCourse: (course: Course) => void;
-  updateEnrolledCourses: (course: Course) => void
+  updateEnrolledCourses: (course: Course) => void;
 }
 
 export interface CourseProps {
@@ -22,11 +22,11 @@ export interface CourseProps {
   selectedCourse: Course | null;
   enrolledCourses: Course[];
   updateSelectedCourse: (course: Course) => void;
-  updateEnrolledCourses: (course: Course) => void
+  updateEnrolledCourses: (course: Course) => void;
 }
 
 export interface CourseDetailsProps {
   course: Course;
   enrolledCourses: Course[];
-  updateEnrolledCourses: (course: Course) => void
+  updateEnrolledCourses: (course: Course) => void;
 }
