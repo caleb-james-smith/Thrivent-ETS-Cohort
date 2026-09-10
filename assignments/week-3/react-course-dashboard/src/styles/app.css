@@ -1,0 +1,137 @@
+@import "tailwindcss";
+
+:root {
+    --background: #fff;
+    --text: #000;
+    --card-background: #fff;
+    --card-text: #000;
+
+    background: var(--background);
+    color: var(--text);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#root {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    /* border: 2px dashed #000; */
+}
+
+button {
+    background-color: #b4e5ff;
+    color: #000;
+    font-size: 16px;
+    padding: 5px 10px;
+    margin: 0;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transform: scale(1);
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+button:hover:not(:disabled) {
+    background-color: #76cfff;
+    transform: scale(1.10);
+}
+
+button:disabled {
+    background-color: #ddd;
+    cursor: not-allowed;
+}
+
+#reset-button {
+    background-color: #fe8e8e;
+}
+
+#reset-button:hover:not(:disabled) {
+    background-color: #fe5d5d;
+    transform: scale(1.10);
+}
+
+.navbar {
+    background-color: #ddd;
+    border: 2px solid #000;
+    font-size: 1.5rem;
+    width: 100%;
+}
+
+.navbar ul {
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 10px;
+    margin: 0;
+    gap: 50px;
+}
+
+.navbar li {
+    flex: 0 0 auto;
+}
+
+footer {
+    background-color: #ddd;
+    border: 2px solid #000;
+    text-align: center;
+    font-size: 1.2rem;
+    width: 100%;
+}
+
+.info-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+    border: 2px solid #000;
+    border-radius: 10px;
+    padding: 25px;
+    margin: 0;
+}
+
+.info-container * {
+    padding: 5px 10px;
+    margin: 0;
+}
+
+.button-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 25px;
+}
+
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+    align-items: center;
+    width: 100%;
+    /* border: 2px dashed #000; */
+    padding: 25px;
+    margin: 0;
+    gap: 25px;
+}
+
+.course-card {
+    background-color: var(--card-background);
+    color: var(--card-text);
+    height: 500px;
+    width: 400px;
+    margin: 0;
+    padding: 25px;
+    border: 2px solid #000;
+    border-radius: 10px;
+}
