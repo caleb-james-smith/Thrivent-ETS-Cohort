@@ -1,6 +1,7 @@
 import "./App.css";
 import { ArticleList } from "./features/articles/ArticleList";
 import { useAppSelector } from "./app/hooks";
+import { ArticleForm } from "./features/articles/ArticleForm";
 
 function App() {
   const articles = useAppSelector((state) => state.articles.articles);
@@ -18,7 +19,7 @@ function App() {
           </div>
         </section>
         <section>
-          <h2>Articles</h2>
+          <ArticleForm />
           <ArticleList articles={articles} />
         </section>
       </div>

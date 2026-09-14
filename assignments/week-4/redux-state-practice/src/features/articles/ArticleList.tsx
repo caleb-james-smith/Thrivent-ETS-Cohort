@@ -12,5 +12,10 @@ export function ArticleList({ articles }: ArticleListProps) {
     }
   }
 
-  return <div>{renderArticleList()}</div>;
+  return (
+    <div>
+      <h2>Articles</h2>
+      {renderArticleList()}
+    </div>
+  );
 }
