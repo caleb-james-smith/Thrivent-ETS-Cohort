@@ -1,14 +1,24 @@
 import { useState } from "react";
 import "./App.css";
-import type { CounterProps } from "./types/props";
+import type { CounterProps, HeaderProps } from "./types/props";
 import Counter from "./Counter";
 import CounterSummary from "./CounterSummary";
+import { Header } from "./components/Header";
 
 function App() {
   const [count, setCount] = useState(0);
+
+  const headerTitle = "Example App";
+  const headerText = "Example app.";
+
   const initialCount: number = 0;
   const counterTitle: string = "Counter";
   const changeText = (text: string): void => {};
+
+  const headerProps: HeaderProps = {
+    title: headerTitle,
+    text: headerText
+  };
 
   const counterProps: CounterProps = {
     initialCount: initialCount,
@@ -20,10 +30,7 @@ function App() {
     <>
       <div>
         <section id="center">
-          <div>
-            <h1>Example App</h1>
-            <p>Example app.</p>
-          </div>
+          <Header title={headerTitle} text={headerText} />
           <button
             type="button"
             className="counter"
