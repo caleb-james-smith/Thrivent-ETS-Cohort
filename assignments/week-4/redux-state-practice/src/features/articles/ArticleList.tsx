@@ -13,7 +13,7 @@ export function ArticleList({ articles }: ArticleListProps) {
   }
 
   return (
-    <div>
+    <div className="articles-container">
       <h2>Articles</h2>
       {renderArticleList()}
     </div>

@@ -20,6 +20,8 @@ function App() {
         </section>
         <section>
           <ArticleForm />
+        </section>
+        <section>
           <ArticleList articles={articles} />
         </section>
       </div>

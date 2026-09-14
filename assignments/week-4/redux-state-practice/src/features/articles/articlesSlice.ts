@@ -6,8 +6,6 @@ const initialState: ArticlesState = {
   articles: [],
 }
 
-// TODO: Add actions (functions) to reducers
-
 const articlesSlice = createSlice({
   name: "articles",
   initialState,
@@ -16,13 +14,13 @@ const articlesSlice = createSlice({
       // Append article to array of articles
       state.articles.push(action.payload);
     },
-    removeArticle(state, action: PayloadAction<number>) {
+    removeArticle(state, action: PayloadAction<string>) {
       // Remove article from array of articles based on id
       state.articles = state.articles.filter(
         article => article.id !== action.payload
       );
     },
-    toggleSaved(state, action: PayloadAction<number>) {
+    toggleSaved(state, action: PayloadAction<string>) {
       // Find the article to modify based on id
       const article = state.articles.find(
         article => article.id === action.payload
