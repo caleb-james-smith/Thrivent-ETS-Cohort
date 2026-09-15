@@ -1,7 +1,7 @@
-import "./App.css";
 import { ArticleList } from "./features/articles/ArticleList";
 import { useAppSelector } from "./app/hooks";
 import { ArticleForm } from "./features/articles/ArticleForm";
+import "./App.css";
 
 function App() {
   const articles = useAppSelector((state) => state.articles.articles);

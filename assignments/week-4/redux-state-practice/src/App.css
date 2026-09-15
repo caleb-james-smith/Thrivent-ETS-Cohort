@@ -17,6 +17,25 @@
   }
 }
 
+#button-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+}
+
+.negative-button {
+  background-color: #a44;
+  border: none;
+  padding: 4px;
+  border-radius: 4px;
+}
+
+.negative-button:hover {
+  background-color: #c44;
+}
+
 #form-container {
   background-color: #003;
   border: 2px solid #ddd;

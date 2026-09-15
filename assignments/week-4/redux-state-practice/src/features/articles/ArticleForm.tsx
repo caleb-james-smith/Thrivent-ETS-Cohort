@@ -34,6 +34,7 @@ export function ArticleForm() {
           <input
             type="text"
             name="title"
+            id="title"
             placeholder="Title"
             value={title}
             onChange={(event) => setTitle(event.target.value)}
@@ -42,6 +43,7 @@ export function ArticleForm() {
           <input
             type="text"
             name="category"
+            id="category"
             placeholder="Category"
             value={category}
             onChange={(event) => setCategory(event.target.value)}
