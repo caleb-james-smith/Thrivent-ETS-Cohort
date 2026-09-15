@@ -17,7 +17,7 @@
   }
 }
 
-#button-container {
+.button-container {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -58,6 +58,8 @@ form {
 .articles-container {
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
   gap: 10px;
   padding: 10px;
 }
@@ -65,6 +67,7 @@ form {
 .article-card {
   background-color: #225;
   border: 2px solid #ddd;
+  width: auto;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;

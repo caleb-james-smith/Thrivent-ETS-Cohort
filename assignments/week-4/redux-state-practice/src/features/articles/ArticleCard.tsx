@@ -19,7 +19,7 @@ export function ArticleCard({ article }: ArticleCardProps) {
         <h3>{article.title}</h3>
         <p>Category: {article.category}</p>
         <p>Saved: {article.saved ? "Yes" : "No"}</p>
-        <div id="button-container">
+        <div className="button-container">
           <button onClick={handleToggleSavedStatus}>{article.saved ? "Unsave" : "Save"}</button>
           <button className="negative-button" onClick={handleRemoveArticle}>Delete</button>
         </div>
