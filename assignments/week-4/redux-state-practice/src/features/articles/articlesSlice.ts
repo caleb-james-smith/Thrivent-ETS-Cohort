@@ -1,0 +1,44 @@
+import { createSlice } from "@reduxjs/toolkit";
+import type { PayloadAction } from "@reduxjs/toolkit";
+import type { Article, ArticlesState } from "../../types/types";
+
+const initialState: ArticlesState = {
+  articles: [],
+}
+
+const articlesSlice = createSlice({
+  name: "articles",
+  initialState,
+  reducers: {
+    addArticle(state, action: PayloadAction<Article>) {
+      // Append article to array of articles
+      state.articles.push(action.payload);
+    },
+    removeArticle(state, action: PayloadAction<string>) {
+      // Remove article from array of articles based on id
+      state.articles = state.articles.filter(
+        article => article.id !== action.payload
+      );
+    },
+    toggleSaved(state, action: PayloadAction<string>) {
+      // Find the article to modify based on id
+      const article = state.articles.find(
+        article => article.id === action.payload
+      );
+      // Invert the saved status
+      if (article) {
+        article.saved = !article.saved;
+      }
+    },
+    clearSavedArticles(state) {
+      // For all articles, set saved status to false
+      for (const article of state.articles) {
+        article.saved = false;
+      }
+    },
+  }
+});
+
+export const { addArticle, removeArticle, toggleSaved, clearSavedArticles } = articlesSlice.actions;
+
+export default articlesSlice.reducer;
