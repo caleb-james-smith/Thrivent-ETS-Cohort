@@ -2,7 +2,7 @@ module.exports = {
   clearMocks: true,
   restoreMocks: true,
   testEnvironment: 'jsdom',
-  setupFilesAfterEnv: [],
+  setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
   testMatch: ['<rootDir>/src/**/*.test.{ts,tsx}'],
   transform: {
     '^.+\\.[jt]sx?$': 'babel-jest',
