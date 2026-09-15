@@ -4,7 +4,7 @@ import { render, screen } from "@testing-library/react";
 import { Header } from "./Header";
 
 describe("Header component", () => {
-  it("renders header title and text", async () => {
+  it("renders name input by user", async () => {
     // Arrange
     const testString: string = "";
     const nameInputText: string = "Caleb";

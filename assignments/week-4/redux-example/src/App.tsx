@@ -30,7 +30,7 @@ function App() {
     <>
       <div>
         <section id="center">
-          <Header title={headerTitle} text={headerText} />
+          <Header {...headerProps} />
           <button
             type="button"
             className="counter"
