@@ -32,16 +32,6 @@ const articlesSlice = createSlice({
     },
     clearSavedArticles(state) {
       // For all articles, set saved status to false
-
-      // Version 1
-      // state.articles = state.articles.map(
-      //   article => ({
-      //     ...article,
-      //     saved: false
-      //   })
-      // );
-
-      // Version 2
       for (const article of state.articles) {
         article.saved = false;
       }
