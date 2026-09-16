@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  name: Test Header Component
+  Test_Header_Component:
     uses: ./assignments/week-4/redux-example/.github/workflows/test.yaml
     with:
       working-directory: ./assignments/week-4/redux-example
