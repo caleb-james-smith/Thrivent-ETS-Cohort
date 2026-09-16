@@ -1,4 +1,4 @@
-name: Run Tests On Example App
+name: Run Tests On Redux Example App
 
 on:
   workflow_dispatch:
@@ -6,6 +6,10 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: assignments/week-4/redux-example
 
     steps:
       - name: Checkout repository
@@ -22,4 +26,3 @@ jobs:
 
       - name: Run tests
         run: npm test
-
