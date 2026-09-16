@@ -5,7 +5,7 @@ on:
 
 jobs:
   Test_Header_Component:
-    uses: ./assignments/week-4/redux-example/.github/workflows/test.yaml
+    uses: caleb-james-smith/Thrivent-ETS-Cohort/assignments/week-4/redux-example/.github/workflows/test.yaml@main
     with:
       working-directory: ./assignments/week-4/redux-example
 
