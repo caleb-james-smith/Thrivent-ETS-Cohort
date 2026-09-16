@@ -4,8 +4,22 @@ on:
   workflow_dispatch:
 
 jobs:
-  Test_Header_Component:
-    uses: caleb-james-smith/Thrivent-ETS-Cohort/assignments/week-4/redux-example/.github/workflows/test.yaml@main
-    with:
-      working-directory: ./assignments/week-4/redux-example
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache-dependency-path: assignments/week-4/redux-example/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run tests
+        run: npm test
 
