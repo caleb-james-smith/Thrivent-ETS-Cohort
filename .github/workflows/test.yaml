@@ -1,0 +1,11 @@
+name: Run Tests On Example App
+
+on:
+  workflow_dispatch:
+
+jobs:
+  name: Test Header Component
+    uses: ./assignments/week-4/redux-example/.github/workflows/test.yaml
+    with:
+      working-directory: ./assignments/week-4/redux-example
+
