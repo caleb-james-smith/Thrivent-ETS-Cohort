@@ -1,10 +1,12 @@
-name: Run Tests On Redux Example App
+name: Run Assignments Tests
 
 on:
   workflow_dispatch:
 
 jobs:
-  test:
+
+  test-redux-example:
+    name: Test Redux Example App
     runs-on: ubuntu-latest
 
     defaults:
@@ -19,8 +21,34 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
+          cache: npm
           cache-dependency-path: assignments/week-4/redux-example/package-lock.json
 
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run tests
+        run: npm test
+
+  test-redux-state-practice:
+    name: Test Redux State Practice App
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: assignments/week-4/redux-state-practice
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: assignments/week-4/redux-state-practice/package-lock.json
+        
       - name: Install dependencies
         run: npm ci
 
