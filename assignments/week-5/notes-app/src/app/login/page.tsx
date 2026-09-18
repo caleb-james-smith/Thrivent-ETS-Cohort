@@ -31,7 +31,7 @@ export default function Login() {
           value={email}
           onChange={handleEmailChange}
           placeholder="Email"
-          className="border border-gray-500 rounded px-2 py-1"
+          className="border border-gray-200 rounded px-2 py-1"
         ></input>
         <label htmlFor="password">Password: </label>
         <input
@@ -39,7 +39,7 @@ export default function Login() {
           value={password}
           onChange={handlePasswordChange}
           placeholder="Password"
-          className="border border-gray-500 rounded px-2 py-1"
+          className="border border-gray-200 rounded px-2 py-1"
         ></input>
         <StandardButton text="Log In" />
       </form>
