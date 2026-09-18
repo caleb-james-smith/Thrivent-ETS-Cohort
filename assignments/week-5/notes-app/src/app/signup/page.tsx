@@ -1,6 +1,7 @@
 "use client";
 
 import StandardButton from "@/components/StandardButton";
+import { createUser } from "@/lib/users";
 import { useState } from "react";
 
 export default function SignUp() {
@@ -17,6 +18,25 @@ export default function SignUp() {
 
   async function handleSignUp(event:React.SubmitEvent<HTMLFormElement>) {
     event.preventDefault();
+
+    const newUser = {
+      id: crypto.randomUUID(),
+      email: email,
+      password: password
+    };
+
+    try {
+      const user = await createUser(newUser);
+
+      console.log("Created user:", user);
+
+      // Clear form data
+      setEmail("");
+      setPassword("");
+
+    } catch (error) {
+      console.error(error);
+    }
   }
 
   function renderSignUpForm() {

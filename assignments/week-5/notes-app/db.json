@@ -1,4 +1,25 @@
 {
-  "users": [],
+  "users": [
+    {
+      "id": "ad2e468b-dec4-445c-9eaf-4f3cabfdfeb7",
+      "email": "bilbo@gmail.com",
+      "password": "TheShire1"
+    },
+    {
+      "id": "da782bca-e5cd-4e29-bdb0-ad0125787cb5",
+      "email": "frodo@gmail.com",
+      "password": "Baggins1"
+    },
+    {
+      "id": "67fc0f2e-5354-4f69-a515-0064bc01b0c9",
+      "email": "tech@talk",
+      "password": "TechTalk1"
+    },
+    {
+      "id": "a9288525-6c12-4452-b2ec-4e839de26354",
+      "email": "mamabaggins@mail.com",
+      "password": "Baby"
+    }
+  ],
   "notes": []
 }

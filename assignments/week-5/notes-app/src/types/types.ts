@@ -6,3 +6,9 @@ export interface StandardLinkProps {
   href: string;
   text: string;
 }
+
+export interface User {
+  id: string;
+  email: string;
+  password: string;
+}
