@@ -19,6 +19,21 @@
       "id": "a9288525-6c12-4452-b2ec-4e839de26354",
       "email": "mamabaggins@mail.com",
       "password": "Baby"
+    },
+    {
+      "id": "5b52c068-98d6-4473-b6e3-7ee846066e22",
+      "email": "macbook@apple.com",
+      "password": "MacBook1"
+    },
+    {
+      "id": "67f196f9-86fe-49ef-8320-b7477c7099e8",
+      "email": "mac@mac",
+      "password": "mac"
+    },
+    {
+      "id": "f33b4139-4edd-46a5-98ea-bdc0dbfc8c90",
+      "email": "test2@test2",
+      "password": "test2"
     }
   ],
   "notes": []
