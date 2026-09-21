@@ -1,6 +1,7 @@
 "use client";
 
 import StandardButton from "@/components/StandardButton";
+import { authenticateUserLogin } from "@/lib/users";
 import { useState } from "react";
 
 export default function Login() {
@@ -17,6 +18,19 @@ export default function Login() {
 
   async function handleLogIn(event:React.SubmitEvent<HTMLFormElement>) {
     event.preventDefault();
+
+    try {
+      const passLogIn = await authenticateUserLogin(email, password);
+
+      console.log("passLogIn:", passLogIn);
+
+      // Clear form data
+      setEmail("");
+      setPassword("");
+
+    } catch (error) {
+      console.error(error);
+    }
   }
 
   function renderLogInForm() {

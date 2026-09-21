@@ -1,3 +1,5 @@
+"use server";
+
 import { User } from "@/types/types";
 
 const API_BASE_URL = process.env.SERVER_BASE_URL;
@@ -24,4 +26,26 @@ export async function createUser(user: User): Promise<User> {
   }
 
   return response.json();
+}
+
+export async function authenticateUserLogin(email: string, password: string): Promise<boolean> {
+  console.log("Authenticating user log in...");
+
+  const response = await fetch(USERS_URL);
+
+  if (!response.ok) {
+    throw new Error("Failed to load user data for authentication.");
+  }
+
+  const data: User[] = await response.json();
+  
+  const user: User | undefined = data.find(
+    (u: User) => u.email === email
+  );
+
+  if (user && user.password === password) {
+    return true;
+  } else {
+    return false;
+  }
 }
