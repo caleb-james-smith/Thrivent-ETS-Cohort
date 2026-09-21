@@ -1,7 +1,7 @@
 "use client";
 
 import StandardButton from "@/components/StandardButton";
-import { authenticateUserLogin } from "@/lib/users";
+import { authenticateUserLogin } from "@/lib/auth";
 import { User } from "@/types/types";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
@@ -16,11 +16,13 @@ export default function Login() {
     setEmail(event.target.value);
   }
 
-  function handlePasswordChange(event: React.ChangeEvent<HTMLInputElement>): void {
+  function handlePasswordChange(
+    event: React.ChangeEvent<HTMLInputElement>,
+  ): void {
     setPassword(event.target.value);
   }
 
-  async function handleLogIn(event:React.SubmitEvent<HTMLFormElement>) {
+  async function handleLogIn(event: React.SubmitEvent<HTMLFormElement>) {
     event.preventDefault();
 
     try {
@@ -38,7 +40,6 @@ export default function Login() {
       // Clear form data
       setEmail("");
       setPassword("");
-
     } catch (error) {
       console.error(error);
     }
