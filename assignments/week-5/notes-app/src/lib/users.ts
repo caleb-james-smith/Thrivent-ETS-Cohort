@@ -37,9 +37,8 @@ export async function authenticateUserLogin(email: string, password: string): Pr
     throw new Error("Failed to load user data for authentication.");
   }
 
-  const data: User[] = await response.json();
-  
-  const user: User | undefined = data.find(
+  const users: User[] = await response.json();
+  const user: User | undefined = users.find(
     (u: User) => u.email === email
   );
 

@@ -56,5 +56,31 @@
       "password": "pass2"
     }
   ],
-  "notes": []
+  "notes": [],
+  "sessions": [
+    {
+      "id": "0cf9ebdb-e163-4e12-8af4-9a4dac5ced4a",
+      "userId": "ad2e468b-dec4-445c-9eaf-4f3cabfdfeb7"
+    },
+    {
+      "id": "b7e3ba21-fd3a-4da3-a85f-d72d3f729f2c",
+      "userId": "ad2e468b-dec4-445c-9eaf-4f3cabfdfeb7"
+    },
+    {
+      "id": "c30b5627-c6ea-41f1-a544-a8e7995ec39b",
+      "userId": "ad2e468b-dec4-445c-9eaf-4f3cabfdfeb7"
+    },
+    {
+      "id": "9cb64527-df82-4b3f-a6f4-0b3dc1898156",
+      "userId": "ad2e468b-dec4-445c-9eaf-4f3cabfdfeb7"
+    },
+    {
+      "id": "e2831746-a6c8-42a1-bc01-a72b1ab44a5e",
+      "userId": "ad2e468b-dec4-445c-9eaf-4f3cabfdfeb7"
+    },
+    {
+      "id": "25365074-42a6-430d-84fe-31ec1fa35162",
+      "userId": "ad2e468b-dec4-445c-9eaf-4f3cabfdfeb7"
+    }
+  ]
 }

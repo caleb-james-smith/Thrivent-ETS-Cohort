@@ -1,17 +1,26 @@
 import { redirect } from "next/navigation";
 import { User } from "@/types/types";
 import Link from "next/link";
+import { getCurrentUser } from "@/lib/auth";
 
-export default function DashboardLayout({
+export default async function DashboardLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  // const user: User | null = await getCurrentUser();
+  let user: User | null = null;
+  try {
+    user = await getCurrentUser();
 
-  // if (!user) {
-  //   redirect("/login");
-  // }
+    if (user) {
+      console.log("In main layout, loaded current user:", user);
+    } else {
+      console.log("In main layout, unable to load current user.");
+      redirect("/login");
+    }
+  } catch (error) {
+    console.error(error);
+  }
   
   // Header
   // -navbar
@@ -31,6 +40,7 @@ export default function DashboardLayout({
           </ul>
         </nav>
       </header>
+      {user && <p className="p-2">Logged in: {user.email}</p>}
       <main className="flex flex-col flex-1">{children}</main>
       <footer className="border-2 border-solid border-white flex flex-row justify-center items-center p-1">
         Created by Caleb Smith (2026)

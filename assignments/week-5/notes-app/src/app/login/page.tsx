@@ -5,6 +5,7 @@ import { authenticateUserLogin } from "@/lib/users";
 import { User } from "@/types/types";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { createSession } from "@/lib/auth";
 
 export default function Login() {
   const [email, setEmail] = useState<string>("");
@@ -27,7 +28,11 @@ export default function Login() {
       console.log("user:", user);
 
       if (user) {
+        createSession(user.id);
+
         router.push("/dashboard");
+      } else {
+        console.log("Unable to load user.");
       }
 
       // Clear form data
