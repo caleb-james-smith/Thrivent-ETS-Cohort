@@ -28,7 +28,7 @@ export async function createUser(user: User): Promise<User> {
   return response.json();
 }
 
-export async function authenticateUserLogin(email: string, password: string): Promise<boolean> {
+export async function authenticateUserLogin(email: string, password: string): Promise<User | null> {
   console.log("Authenticating user log in...");
 
   const response = await fetch(USERS_URL);
@@ -44,8 +44,10 @@ export async function authenticateUserLogin(email: string, password: string): Pr
   );
 
   if (user && user.password === password) {
-    return true;
+    console.log("User log in passed authentication.");
+    return user;
   } else {
-    return false;
+    console.log("User log in failed authentication. Did not find this email/password combination.");
+    return null;
   }
 }

@@ -2,11 +2,15 @@
 
 import StandardButton from "@/components/StandardButton";
 import { authenticateUserLogin } from "@/lib/users";
+import { User } from "@/types/types";
 import { useState } from "react";
+// import { useRouter } from "next/router"; // Does not work!
+import { useRouter } from "next/navigation";
 
 export default function Login() {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
+  const router = useRouter();
 
   function handleEmailChange(event: React.ChangeEvent<HTMLInputElement>): void {
     setEmail(event.target.value);
@@ -20,9 +24,12 @@ export default function Login() {
     event.preventDefault();
 
     try {
-      const passLogIn = await authenticateUserLogin(email, password);
+      const user: User | null = await authenticateUserLogin(email, password);
+      console.log("user:", user);
 
-      console.log("passLogIn:", passLogIn);
+      if (user) {
+        router.push("/dashboard");
+      }
 
       // Clear form data
       setEmail("");

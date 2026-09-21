@@ -1,3 +1,5 @@
+import { redirect } from "next/navigation";
+import { User } from "@/types/types";
 import Link from "next/link";
 
 export default function DashboardLayout({
@@ -5,14 +7,17 @@ export default function DashboardLayout({
 }: {
   children: React.ReactNode;
 }) {
+  // const user: User | null = await getCurrentUser();
+
+  // if (!user) {
+  //   redirect("/login");
+  // }
   
   // Header
   // -navbar
   // Main
   // - children
   // Footer
-
-  // console.log("children?.valueOf():", children?.valueOf());
 
   return (
     <>
