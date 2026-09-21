@@ -4,7 +4,6 @@ import StandardButton from "@/components/StandardButton";
 import { authenticateUserLogin } from "@/lib/users";
 import { User } from "@/types/types";
 import { useState } from "react";
-// import { useRouter } from "next/router"; // Does not work!
 import { useRouter } from "next/navigation";
 
 export default function Login() {
