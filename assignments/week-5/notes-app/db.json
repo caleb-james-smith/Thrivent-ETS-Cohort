@@ -1,0 +1,90 @@
+{
+  "users": [
+    {
+      "id": "ad2e468b-dec4-445c-9eaf-4f3cabfdfeb7",
+      "email": "bilbo@gmail.com",
+      "password": "TheShire1"
+    },
+    {
+      "id": "da782bca-e5cd-4e29-bdb0-ad0125787cb5",
+      "email": "frodo@gmail.com",
+      "password": "Baggins1"
+    },
+    {
+      "id": "67fc0f2e-5354-4f69-a515-0064bc01b0c9",
+      "email": "tech@talk",
+      "password": "TechTalk1"
+    },
+    {
+      "id": "a9288525-6c12-4452-b2ec-4e839de26354",
+      "email": "mamabaggins@mail.com",
+      "password": "Baby"
+    },
+    {
+      "id": "5b52c068-98d6-4473-b6e3-7ee846066e22",
+      "email": "macbook@apple.com",
+      "password": "MacBook1"
+    },
+    {
+      "id": "67f196f9-86fe-49ef-8320-b7477c7099e8",
+      "email": "mac@mac",
+      "password": "mac"
+    },
+    {
+      "id": "f33b4139-4edd-46a5-98ea-bdc0dbfc8c90",
+      "email": "test2@test2",
+      "password": "test2"
+    },
+    {
+      "id": "6e25d8ad-8ceb-40b6-aea5-5c62c371f8f4",
+      "email": "test3@test3",
+      "password": "test3"
+    },
+    {
+      "id": "c9340a34-5962-4799-b1fa-21d396a9560d",
+      "email": "test4@test4",
+      "password": "test4"
+    },
+    {
+      "id": "97de86f7-4c26-478c-8190-2ebada572c72",
+      "email": "user@user",
+      "password": "pass"
+    },
+    {
+      "id": "10bfb46c-1838-4806-9e5d-74354629d0f7",
+      "email": "user2@user2",
+      "password": "pass2"
+    }
+  ],
+  "notes": [],
+  "sessions": [
+    {
+      "id": "0cf9ebdb-e163-4e12-8af4-9a4dac5ced4a",
+      "userId": "ad2e468b-dec4-445c-9eaf-4f3cabfdfeb7"
+    },
+    {
+      "id": "b7e3ba21-fd3a-4da3-a85f-d72d3f729f2c",
+      "userId": "ad2e468b-dec4-445c-9eaf-4f3cabfdfeb7"
+    },
+    {
+      "id": "c30b5627-c6ea-41f1-a544-a8e7995ec39b",
+      "userId": "ad2e468b-dec4-445c-9eaf-4f3cabfdfeb7"
+    },
+    {
+      "id": "9cb64527-df82-4b3f-a6f4-0b3dc1898156",
+      "userId": "ad2e468b-dec4-445c-9eaf-4f3cabfdfeb7"
+    },
+    {
+      "id": "e2831746-a6c8-42a1-bc01-a72b1ab44a5e",
+      "userId": "ad2e468b-dec4-445c-9eaf-4f3cabfdfeb7"
+    },
+    {
+      "id": "25365074-42a6-430d-84fe-31ec1fa35162",
+      "userId": "ad2e468b-dec4-445c-9eaf-4f3cabfdfeb7"
+    },
+    {
+      "id": "1be56d0f-1a54-4203-be4f-d26e47a76a85",
+      "userId": "ad2e468b-dec4-445c-9eaf-4f3cabfdfeb7"
+    }
+  ]
+}
