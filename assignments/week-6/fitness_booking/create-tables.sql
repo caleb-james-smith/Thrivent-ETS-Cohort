@@ -1,22 +1,21 @@
 CREATE TABLE "people" (
   "id" integer PRIMARY KEY,
-  "role_id" integer NOT NULL,
-  "email" varchar(255) UNIQUE NOT NULL,
-  "phone_number" varchar(50) UNIQUE NOT NULL,
   "first_name" varchar(255) NOT NULL,
   "last_name" varchar(255) NOT NULL,
+  "email" varchar(255) UNIQUE NOT NULL,
+  "phone_number" varchar(50) UNIQUE NOT NULL,
   "created_at" timestamp DEFAULT (now())
+);
+
+CREATE TABLE "roles" (
+  "id" integer PRIMARY KEY,
+  "name" varchar(255) UNIQUE NOT NULL
 );
 
 CREATE TABLE "people_roles" (
   "id" integer PRIMARY KEY,
   "person_id" integer NOT NULL,
   "role_id" integer NOT NULL
-);
-
-CREATE TABLE "roles" (
-  "id" integer PRIMARY KEY,
-  "name" varchar(255) UNIQUE NOT NULL
 );
 
 CREATE TABLE "classes" (
