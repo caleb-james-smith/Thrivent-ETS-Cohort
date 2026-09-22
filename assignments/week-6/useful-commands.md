@@ -54,6 +54,11 @@ List the tables in the database:
 \dt
 ```
 
+Show table information, including columns and keys:
+```
+\d table_name
+```
+
 ## SQL
 
 
