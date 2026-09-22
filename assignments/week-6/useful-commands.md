@@ -36,3 +36,24 @@ Example:
 ```bash
 docker exec -it postgres_container psql -d fitness_booking -U app_user
 ```
+
+Syntax to execute an SQL script:
+```bash
+docker exec -i <container> psql -d <database> -U <user> < script.sql
+```
+
+Example:
+```bash
+docker exec -i postgres_container psql -d fitness_booking -U app_user < create-tables.sql
+```
+
+## psql
+
+List the tables in the database:
+```
+\dt
+```
+
+## SQL
+
+
