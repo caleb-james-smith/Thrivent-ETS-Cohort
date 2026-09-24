@@ -6,7 +6,7 @@
 -- Include class session with no bookings
 
 SELECT
-	COUNT(bookings.class_session_id) AS num_bookings,
+	COUNT(bookings.id) AS num_bookings,
 	classes.name AS class_name,
 	class_types.type AS class_type,
 	locations.name AS location_name,
