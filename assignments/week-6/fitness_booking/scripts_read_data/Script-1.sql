@@ -1,3 +1,5 @@
+-- Assignment 3: Filter
+
 -- Get all info for people
 
 SELECT * FROM people;

@@ -1,3 +1,5 @@
+-- Assignment 4: Join
+
 -- Get info for all class sessions
 
 SELECT

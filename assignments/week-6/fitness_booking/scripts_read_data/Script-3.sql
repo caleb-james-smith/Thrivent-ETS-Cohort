@@ -1,3 +1,5 @@
+-- Assignment 5: Aggregate
+
 -- Count the number of people
 
 SELECT COUNT(*) AS num_people
