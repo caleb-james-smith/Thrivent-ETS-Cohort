@@ -34,7 +34,9 @@ SELECT * FROM class_sessions;
 
 SELECT * FROM bookings;
 
--- Get info for class sessions
+-- Get readable info for class sessions
+-- Include class info
+-- Sort by start time in ascending order
 
 SELECT
 	classes.name AS class_name,
@@ -45,7 +47,8 @@ SELECT
 FROM class_sessions
 JOIN classes ON class_sessions.class_id = classes.id
 JOIN locations ON class_sessions.location_id = locations.id
-JOIN class_types ON class_types.id = classes.class_type_id;
+JOIN class_types ON class_types.id = classes.class_type_id
+ORDER BY class_sessions.start_at;
 
 -- Get info for cardio class types ordered by start time
 
