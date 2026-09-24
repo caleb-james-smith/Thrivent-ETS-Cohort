@@ -117,7 +117,7 @@ ORDER BY num_trainer_assignments DESC;
 
 -- For each class, count the number of sessions
 -- Include the class type
--- Sort by numer of sessions in descending order
+-- Sort by number of sessions in descending order
 
 SELECT
 	COUNT(class_sessions.id) AS num_sessions,
