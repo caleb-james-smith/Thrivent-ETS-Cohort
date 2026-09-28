@@ -55,16 +55,16 @@ public class Ticket {
         return technician;
     }
 
-    public void setStatus(TicketStatus newStatus) {
-        status = newStatus;
+    public void setStatus(TicketStatus status) {
+        this.status = status;
     }
 
-    public void setPriority(TicketPriority newPriority) {
-        priority = newPriority;
+    public void setPriority(TicketPriority priority) {
+        this.priority = priority;
     }
 
-    public void setTechnician(Technician newTechnician) {
-        technician = newTechnician;
+    public void setTechnician(Technician technician) {
+        this.technician = technician;
     }
 
     public boolean isClosed() {

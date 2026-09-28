@@ -15,6 +15,10 @@ public class User {
         this.phoneNumber = phoneNumber;
     }
 
+    public int getId() {
+        return id;
+    }
+
     public String getFirstName() {
         return firstName;
     }

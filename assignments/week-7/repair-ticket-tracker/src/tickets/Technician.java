@@ -14,7 +14,7 @@ public class Technician extends User {
         return categories;
     }
 
-    public void setCategories(List<TicketCategory> newCategories) {
-        categories = newCategories;
+    public void setCategories(List<TicketCategory> categories) {
+        this.categories = categories;
     }
 }
