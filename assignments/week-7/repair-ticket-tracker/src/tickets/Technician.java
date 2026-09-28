@@ -6,8 +6,8 @@ import java.util.List;
 public class Technician extends User {
     private List<TicketCategory> categories = new ArrayList<>();
 
-    public Technician(String firstName, String lastName, String email, String phoneNumber) {
-        super(firstName, lastName, email, phoneNumber);
+    public Technician(int id, String firstName, String lastName, String email, String phoneNumber) {
+        super(id, firstName, lastName, email, phoneNumber);
     }
 
     public List<TicketCategory> getCategories() {

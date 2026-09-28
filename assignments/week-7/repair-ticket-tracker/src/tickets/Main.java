@@ -7,18 +7,20 @@ public class Main {
     public static void main(String[] args) {
         printHeader();
 
-        Requester requester = new Requester(
-            "Benjamin",
-            "Gates",
-            "benjamin.gates@example.com",
-            "121-343-5656"
-        );
-
         Technician technician = new Technician(
+            1000,
             "Bill",
             "Smith",
             "bill.smith@examle.com",
             "777-888-9999"
+        );
+
+        Requester requester = new Requester(
+            2000,
+            "Benjamin",
+            "Gates",
+            "benjamin.gates@example.com",
+            "121-343-5656"
         );
 
         Ticket ticket = new Ticket(
