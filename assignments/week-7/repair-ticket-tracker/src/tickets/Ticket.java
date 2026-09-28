@@ -83,7 +83,7 @@ public class Ticket {
         
         // Confirm not null before updating info
         if (technician != null) {
-            technicianInfo = technician.getEmail();
+            technicianInfo = technician.getFullName();
         }
 
         System.out.println("Ticket #" + id);
@@ -92,7 +92,7 @@ public class Ticket {
         System.out.println(" - Category: " + category);
         System.out.println(" - Status: " + status);
         System.out.println(" - Priority: " + priorityInfo);
-        System.out.println(" - Requester: " + requester.getEmail());
+        System.out.println(" - Requester: " + requester.getFullName());
         System.out.println(" - Technician: " + technicianInfo);
     }
 }

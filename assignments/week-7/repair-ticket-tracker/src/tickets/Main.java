@@ -1,10 +1,25 @@
 package tickets;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Main {
     public static void main(String[] args) {
         printHeader();
 
-        Requester requester = new Requester("Benjamin", "Gates", "benjamin.gates@example.com", "121-343-5656");
+        Requester requester = new Requester(
+            "Benjamin",
+            "Gates",
+            "benjamin.gates@example.com",
+            "121-343-5656"
+        );
+
+        Technician technician = new Technician(
+            "Bill",
+            "Smith",
+            "bill.smith@examle.com",
+            "777-888-9999"
+        );
 
         Ticket ticket = new Ticket(
             1,
@@ -13,6 +28,15 @@ public class Main {
             TicketCategory.COMPUTERS,
             requester
         );
+
+        List<TicketCategory> categories = new ArrayList<>();
+        categories.add(TicketCategory.ELECTRONICS);
+        categories.add(TicketCategory.COMPUTERS);
+        technician.setCategories(categories);
+
+        ticket.setStatus(TicketStatus.ONGOING);
+        ticket.setPriority(TicketPriority.HIGH);
+        ticket.setTechnician(technician);
         
         ticket.printTicketSummary();
     }
