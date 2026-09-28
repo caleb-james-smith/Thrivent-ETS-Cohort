@@ -4,5 +4,6 @@ public enum TicketStatus {
     TODO,
     ONGOING,
     PENDING,
+    REVIEW,
     DONE
 }
