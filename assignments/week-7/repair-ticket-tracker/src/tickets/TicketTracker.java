@@ -22,6 +22,43 @@ public class TicketTracker {
         tickets.add(ticket);
     }
 
+    public int getNumTickets() {
+        return tickets.size();
+    }
+
+    public int getNumOpenTickets() {
+        int num_open = 0;
+
+        for (Ticket ticket : tickets) {
+            if (!ticket.isClosed()) {
+                num_open += 1;
+            }
+        }
+
+        return num_open;
+    }
+
+    public int getNumClosedTickets() {
+        int num_closed = 0;
+
+        for (Ticket ticket : tickets) {
+            if (ticket.isClosed()) {
+                num_closed += 1;
+            }
+        }
+
+        return num_closed;
+    }
+
+    public void printSummary() {
+        System.out.println();
+        System.out.println("Number of Tickets:");
+        System.out.println(" - Total: " + getNumTickets());
+        System.out.println(" - Open: " + getNumOpenTickets());
+        System.out.println(" - Closed: " + getNumClosedTickets());
+        System.out.println();
+    }
+
     public void printTicketsLessInfo() {
         for (Ticket ticket : tickets) {
             ticket.printLessInfo();

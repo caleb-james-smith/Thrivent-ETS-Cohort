@@ -13,6 +13,7 @@ public class Manager {
     public void runApp() {
         loadTickets();
         updateTickets();
+        ticketTracker.printSummary();
         ticketTracker.printTicketsLessInfo();
         // ticketTracker.printTicketsMoreInfo();
     }
@@ -140,12 +141,6 @@ public class Manager {
         // - Update the status
         // - Update the priority
         // - Assign a technician
-
-        // If we modify these ticket objects,
-        // will they be modified in the list of tickets in ticket tracker?
-        // Let's test this!
-        // Otherwise, we will need a way to change individual tickets
-        // or replace the ticket list with a list of updated tickets.
 
         ticket1.setStatus(TicketStatus.DONE);
         ticket1.setPriority(TicketPriority.HIGH);
