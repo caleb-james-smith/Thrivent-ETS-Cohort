@@ -71,10 +71,31 @@ public class Ticket {
         return status == TicketStatus.DONE;
     }
 
-    public void printTicketSummary() {
+    public void printLessInfo() {
+        System.out.print("Ticket #" + id + ": ");
+        if (isClosed()) {
+            System.out.print("CLOSED");
+        } else {
+            System.out.print("OPEN");
+        }
+        System.out.print(" | ");
+        System.out.print(status);
+        System.out.print(" | ");
+        System.out.print(title);
+        System.out.println();
+    }
+
+    public void printMoreInfo() {
         // Default info
+        String statusInfo = "OPEN";
         String priorityInfo = "Unassigned";
         String technicianInfo = "Unassigned";
+        
+        if (isClosed()) {
+            statusInfo = "CLOSED";
+        }
+        
+        statusInfo += " | " + status;
 
         // Confirm not null before updating info
         if (priority != null) {
@@ -90,7 +111,7 @@ public class Ticket {
         System.out.println(" - Title: " + title);
         System.out.println(" - Description: " + description);
         System.out.println(" - Category: " + category);
-        System.out.println(" - Status: " + status);
+        System.out.println(" - Status: " + statusInfo);
         System.out.println(" - Priority: " + priorityInfo);
         System.out.println(" - Requester: " + requester.getFullName());
         System.out.println(" - Technician: " + technicianInfo);

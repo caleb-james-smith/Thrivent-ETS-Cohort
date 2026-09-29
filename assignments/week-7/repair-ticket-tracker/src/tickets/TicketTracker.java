@@ -4,9 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TicketTracker {
-    private List<Ticket> tickets = new ArrayList<>();
+    private List<Ticket> tickets;
 
-    public TicketTracker() {}
+    public TicketTracker() {
+        this.tickets = new ArrayList<>();
+    }
 
     public List<Ticket> getTickets() {
         return tickets;
@@ -18,5 +20,17 @@ public class TicketTracker {
 
     public void addTicket(Ticket ticket) {
         tickets.add(ticket);
+    }
+
+    public void printTicketsLessInfo() {
+        for (Ticket ticket : tickets) {
+            ticket.printLessInfo();
+        }
+    }
+    
+    public void printTicketsMoreInfo() {
+        for (Ticket ticket : tickets) {
+            ticket.printMoreInfo();
+        }
     }
 }

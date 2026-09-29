@@ -6,12 +6,15 @@ import java.util.List;
 public class Manager {
     private TicketTracker ticketTracker;
 
-    public Manager() {}
+    public Manager() {
+        this.ticketTracker = new TicketTracker();
+    }
 
     public void runApp() {
         loadTickets();
         updateTickets();
-        printTicketsLessInfo();
+        ticketTracker.printTicketsLessInfo();
+        // ticketTracker.printTicketsMoreInfo();
     }
 
     public void loadTickets() {
@@ -69,7 +72,7 @@ public class Manager {
             4,
             "Electrical Outlets Not Working",
             "The electrical outlets in our electronics lab suddenly stopped provided power this afternoon. We cannot turn on the computers, power supplies, or other electronic devices.",
-            TicketCategory.COMPUTERS,
+            TicketCategory.ELECTRICAL,
             requester3
         );
 
@@ -126,14 +129,38 @@ public class Manager {
         technician2.setCategories(categories2);
         technician3.setCategories(categories3);
 
+        // Get tickets
+        List<Ticket> tickets = ticketTracker.getTickets();
+        Ticket ticket1 = tickets.get(0);
+        Ticket ticket2 = tickets.get(1);
+        Ticket ticket3 = tickets.get(2);
+        Ticket ticket4 = tickets.get(3);
+        
         // For each ticket:
         // - Update the status
         // - Update the priority
         // - Assign a technician
 
-    }
+        // If we modify these ticket objects,
+        // will they be modified in the list of tickets in ticket tracker?
+        // Let's test this!
+        // Otherwise, we will need a way to change individual tickets
+        // or replace the ticket list with a list of updated tickets.
 
-    public void printTicketsLessInfo() {}
-    
-    public void printTicketsMoreInfo() {}
+        ticket1.setStatus(TicketStatus.DONE);
+        ticket1.setPriority(TicketPriority.HIGH);
+        ticket1.setTechnician(technician2);
+
+        ticket2.setStatus(TicketStatus.ONGOING);
+        ticket2.setPriority(TicketPriority.LOW);
+        ticket2.setTechnician(technician3);
+
+        ticket3.setStatus(TicketStatus.PENDING);
+        ticket3.setPriority(TicketPriority.HIGH);
+        ticket3.setTechnician(technician3);
+
+        ticket4.setStatus(TicketStatus.TODO);
+        ticket4.setPriority(TicketPriority.MEDIUM);
+        ticket4.setTechnician(technician1);
+    }
 }
