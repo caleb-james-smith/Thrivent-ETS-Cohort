@@ -13,6 +13,25 @@ public class Ticket {
     private Technician technician;
 
     public Ticket(int id, String title, String description, TicketCategory category, Requester requester) {
+        // Validation
+        if (id < 1) {
+            throw new IllegalArgumentException("Ticket id must be greater than zero; provided id = " + id);
+        }
+
+        if (title == null || title.isBlank()) {
+            throw new IllegalArgumentException("Ticket title cannot be empty");
+        }
+        
+        if (description == null || description.isBlank()) {
+            throw new IllegalArgumentException("Ticket description cannot be empty");
+        }
+        
+        if (requester == null) {
+            throw new IllegalArgumentException("Ticket requester cannot be null");
+        }
+
+        // System.out.println("Made it past conditions, about to do attribute assignments, Ticket id = " + id);
+
         this.id = id;
         this.title = title;
         this.description = description;
@@ -21,6 +40,8 @@ public class Ticket {
         this.priority = null;
         this.requester = requester;
         this.technician = null;
+
+        System.out.println("Created ticket with id = " + id);
     }
 
     public int getId() {
@@ -89,6 +110,7 @@ public class Ticket {
         // Default info
         String statusInfo = "OPEN";
         String priorityInfo = "Unassigned";
+        String requesterInfo = "Unassigned";
         String technicianInfo = "Unassigned";
         
         if (isClosed()) {
@@ -98,11 +120,15 @@ public class Ticket {
         statusInfo += " | " + status;
 
         // Confirm not null before updating info
+        
         if (priority != null) {
             priorityInfo = priority.toString();
         }
+
+        if (requester != null) {
+            requesterInfo = requester.getFullName();
+        }
         
-        // Confirm not null before updating info
         if (technician != null) {
             technicianInfo = technician.getFullName();
         }
@@ -113,7 +139,7 @@ public class Ticket {
         System.out.println(" - Category: " + category);
         System.out.println(" - Status: " + statusInfo);
         System.out.println(" - Priority: " + priorityInfo);
-        System.out.println(" - Requester: " + requester.getFullName());
+        System.out.println(" - Requester: " + requesterInfo);
         System.out.println(" - Technician: " + technicianInfo);
     }
 }

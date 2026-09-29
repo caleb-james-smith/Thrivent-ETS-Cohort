@@ -11,11 +11,17 @@ public class Manager {
     }
 
     public void runApp() {
-        loadTickets();
-        updateTickets();
-        ticketTracker.printSummary();
-        ticketTracker.printTicketsLessInfo();
-        // ticketTracker.printTicketsMoreInfo();
+        try {
+            loadTickets();
+            loadTestTickets();
+            updateTickets();
+    
+            ticketTracker.printSummary();
+            // ticketTracker.printTicketsLessInfo();
+            ticketTracker.printTicketsMoreInfo();
+        } catch (IllegalArgumentException e) {
+            System.err.println("Error: " + e.getMessage());
+        }
     }
 
     public void loadTickets() {
@@ -82,6 +88,35 @@ public class Manager {
         ticketTracker.addTicket(ticket2);
         ticketTracker.addTicket(ticket3);
         ticketTracker.addTicket(ticket4);
+    }
+    
+    public void loadTestTickets() {
+        Requester requester1 = new Requester(
+            9001,
+            "Testy",
+            "Tester",
+            "test@example.com",
+            "999-999-9999"
+        );
+
+        Ticket ticket1 = new Ticket(
+            900,
+            "Test Ticket",
+            "This is a test...",
+            TicketCategory.ELECTRICAL,
+            requester1
+        );
+                
+        Ticket ticket2 = new Ticket(
+            0,
+            "",
+            "",
+            null,
+            null
+        );
+
+        ticketTracker.addTicket(ticket1);
+        ticketTracker.addTicket(ticket2);
     }
 
     public void updateTickets() {
