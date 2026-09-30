@@ -1,5 +1,8 @@
 package tickets;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Ticket {
     private int id;
     private String title;
@@ -11,6 +14,7 @@ public class Ticket {
 
     private Requester requester;
     private Technician technician;
+    private List<String> notes;
 
     public Ticket(int id, String title, String description, TicketCategory category, Requester requester) {
         // Validation
@@ -30,8 +34,6 @@ public class Ticket {
             throw new IllegalArgumentException("Ticket requester cannot be null");
         }
 
-        // System.out.println("Made it past conditions, about to do attribute assignments, Ticket id = " + id);
-
         this.id = id;
         this.title = title;
         this.description = description;
@@ -40,6 +42,7 @@ public class Ticket {
         this.priority = null;
         this.requester = requester;
         this.technician = null;
+        this.notes = new ArrayList<>();
 
         System.out.println("Created ticket with id = " + id);
     }
@@ -78,18 +81,25 @@ public class Ticket {
 
     public void setStatus(TicketStatus status) {
         this.status = status;
+        addNote("Set status to " + this.status);
     }
 
     public void setPriority(TicketPriority priority) {
         this.priority = priority;
+        addNote("Set priority to " + this.priority);
     }
 
     public void setTechnician(Technician technician) {
         this.technician = technician;
+        addNote("Set technician to " + this.technician.getFullName());
     }
 
     public boolean isClosed() {
         return status == TicketStatus.DONE;
+    }
+
+    public void addNote(String note) {
+        notes.add(note);
     }
 
     public void printLessInfo() {
@@ -141,5 +151,12 @@ public class Ticket {
         System.out.println(" - Priority: " + priorityInfo);
         System.out.println(" - Requester: " + requesterInfo);
         System.out.println(" - Technician: " + technicianInfo);
+
+        // System.out.println("notes object: " + notes);
+        System.out.println(" - Notes:");
+        for (String note : notes) {
+            System.out.println("    - " + note);
+        }
+        System.out.println();
     }
 }

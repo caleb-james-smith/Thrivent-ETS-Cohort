@@ -13,7 +13,7 @@ public class Manager {
     public void runApp() {
         try {
             loadTickets();
-            loadTestTickets();
+            // loadTestTickets();
             updateTickets();
     
             ticketTracker.printSummary();
@@ -177,9 +177,12 @@ public class Manager {
         // - Update the priority
         // - Assign a technician
 
-        ticket1.setStatus(TicketStatus.DONE);
+        // Also test setting the same attribute multiple times
+
+        ticket1.setStatus(TicketStatus.ONGOING);
         ticket1.setPriority(TicketPriority.HIGH);
         ticket1.setTechnician(technician2);
+        ticket1.setStatus(TicketStatus.DONE);
 
         ticket2.setStatus(TicketStatus.ONGOING);
         ticket2.setPriority(TicketPriority.LOW);
@@ -187,10 +190,14 @@ public class Manager {
 
         ticket3.setStatus(TicketStatus.PENDING);
         ticket3.setPriority(TicketPriority.HIGH);
+        ticket3.setTechnician(technician1);
+        ticket3.setTechnician(technician2);
         ticket3.setTechnician(technician3);
 
         ticket4.setStatus(TicketStatus.TODO);
-        ticket4.setPriority(TicketPriority.MEDIUM);
         ticket4.setTechnician(technician1);
+        ticket4.setPriority(TicketPriority.MEDIUM);
+        ticket4.setStatus(TicketStatus.REVIEW);
+        ticket4.setPriority(TicketPriority.HIGH);
     }
 }
