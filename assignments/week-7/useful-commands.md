@@ -21,3 +21,26 @@ Example for the compilation output directory `out`, the package `zoo`, and the c
 ```bash
 java -cp out zoo.Main
 ```
+
+## Maven
+
+Run all tests:
+```bash
+mvn test
+```
+
+Clean and run all tests (deletes target directory first):
+```bash
+mvn clean test
+```
+
+Run a specific test class:
+```bash
+mvn test -Dtest=ExampleTestClass
+```
+
+Run a specific test method of a class:
+```bash
+mvn test -Dtest=ExampleTestClass#exampleTestMethod
+```
+
