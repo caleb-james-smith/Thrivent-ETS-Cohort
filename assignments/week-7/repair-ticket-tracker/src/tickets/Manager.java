@@ -13,7 +13,7 @@ public class Manager {
     public void runApp() {
         try {
             loadTickets();
-            // loadTestTickets();
+            loadTestTickets();
             updateTickets();
     
             ticketTracker.printSummary();
@@ -25,6 +25,8 @@ public class Manager {
     }
 
     public void loadTickets() {
+        System.out.println("Loading tickets...");
+
         // Requesters
         Requester requester1 = new Requester(
             2001,
@@ -91,6 +93,8 @@ public class Manager {
     }
     
     public void loadTestTickets() {
+        System.out.println("Loading test tickets...");
+
         Requester requester1 = new Requester(
             9001,
             "Testy",
@@ -100,26 +104,55 @@ public class Manager {
         );
 
         Ticket ticket1 = new Ticket(
-            900,
+            901,
+            "Test Ticket",
+            "This is a test...",
+            TicketCategory.MECHANICAL,
+            requester1
+        );
+
+        Ticket ticket2 = new Ticket(
+            902,
             "Test Ticket",
             "This is a test...",
             TicketCategory.ELECTRICAL,
             requester1
         );
-                
-        Ticket ticket2 = new Ticket(
-            0,
-            "",
-            "",
-            null,
-            null
+
+        Ticket ticket3 = new Ticket(
+            1,
+            "Test Ticket 1",
+            "This is a test ticket with id = 1.",
+            TicketCategory.MECHANICAL,
+            requester1
         );
+
+        Ticket ticket4 = new Ticket(
+            2,
+            "Test Ticket 2",
+            "This is a test ticket with id = 2.",
+            TicketCategory.MECHANICAL,
+            requester1
+        );
+
+        // Ticket ticket5 = new Ticket(
+        //     0,
+        //     "",
+        //     "",
+        //     null,
+        //     null
+        // );
 
         ticketTracker.addTicket(ticket1);
         ticketTracker.addTicket(ticket2);
+        // ticketTracker.addTicket(ticket3);
+        // ticketTracker.addTicket(ticket4);
+        // ticketTracker.addTicket(ticket5);
     }
 
     public void updateTickets() {
+        System.out.println("Updating tickets...");
+
         // Technicians
         Technician technician1 = new Technician(
             1001,

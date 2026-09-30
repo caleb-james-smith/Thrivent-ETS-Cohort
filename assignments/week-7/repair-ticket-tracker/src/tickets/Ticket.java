@@ -44,7 +44,7 @@ public class Ticket {
         this.technician = null;
         this.notes = new ArrayList<>();
 
-        System.out.println("Created ticket with id = " + id);
+        System.out.println(" - Created ticket id = " + id);
     }
 
     public int getId() {

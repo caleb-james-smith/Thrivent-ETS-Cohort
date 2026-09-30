@@ -19,7 +19,14 @@ public class TicketTracker {
     }
 
     public void addTicket(Ticket ticket) {
+        // Do not allow a ticket to be added if the id is already in use
+        for (Ticket t : tickets) {
+            if (t.getId() == ticket.getId()) {
+                throw new IllegalArgumentException("Cannot add ticket to list of tickets because id = " + ticket.getId() + " is already in use");
+            }
+        }
         tickets.add(ticket);
+        System.out.println(" - Added ticket id = " + ticket.getId() + " to tickets");
     }
 
     public int getNumTickets() {
