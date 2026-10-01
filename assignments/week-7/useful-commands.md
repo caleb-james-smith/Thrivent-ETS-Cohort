@@ -24,6 +24,15 @@ java -cp out zoo.Main
 
 ## Maven
 
+### Runnings apps
+
+Run a Java Spring app:
+```bash
+./mvnw spring-boot:run
+```
+
+### Running Tests
+
 Run all tests:
 ```bash
 mvn test
