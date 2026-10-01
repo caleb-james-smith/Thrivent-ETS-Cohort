@@ -122,15 +122,15 @@ public class TicketTest {
     void ticketIdZeroThrowsIllegalArgumentException() {
         // Arrange
         int id = 0;
-        String title = "Broken Computer";
-        String description = "My computer is broken. Send help!";
+        String title = "MacBook Pro Not Charging";
+        String description = "My MacBook Pro (work computer) is not charging. I tried all the USB C ports, but none of them worked. I suspect that the cable is bad.";
         TicketCategory category = TicketCategory.COMPUTERS;
         Requester requester = new Requester(
             9001,
-            "Testy",
-            "Tester",
-            "test@example.com",
-            "999-999-9999"
+            "Aaron",
+            "Sierp",
+            "asierp@example.com",
+            "123-456-7890"
         );
         
         // Assert
@@ -146,7 +146,7 @@ public class TicketTest {
                     requester
                 );
             },
-            "Ticket id = 0 should throw IllegalArgumentException"
+            "Creating a ticket with id = 0 should throw an IllegalArgumentException"
         );
     }
 }
