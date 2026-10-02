@@ -5,6 +5,7 @@ import com.example.ticket.repository.TicketRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class TicketService {
@@ -16,5 +17,31 @@ public class TicketService {
 
     public List<Ticket> findAll() {
         return ticketRepository.findAll();
+    }
+
+    // Version 1
+    public Ticket findById(Long id) {
+        // Type mismatch: cannot convert from Optional<Ticket> to Ticket:
+        // return ticketRepository.findById(id);
+
+        // Handle no ticket found with the provided id
+        return ticketRepository.findById(id).orElse(null);
+    }
+
+    // Version 2
+    // public Optional<Ticket> findById(Long id) {
+    //     return ticketRepository.findById(id);
+    // }
+
+    public String renderHello(String header, String name) {
+        String result = "";
+
+		if (name == null || name.isBlank()) {
+			result = String.format("<h1>%s</h1><p>Hello!</p>", header);
+		} else {
+			result = String.format("<h1>%s</h1><p>Hello, <b>%s</b>!</p>", header, name);
+		}
+
+        return result;
     }
 }
