@@ -95,6 +95,9 @@ public class Manager {
     public void loadTestTickets() {
         System.out.println("Loading test tickets...");
 
+        // Cannot instantiate abstract class
+        // User user1 = new User(1, "Caleb", "Smith", "caleb@example", "123-456-7890");
+
         Requester requester1 = new Requester(
             9001,
             "Testy",

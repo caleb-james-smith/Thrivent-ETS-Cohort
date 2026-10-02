@@ -1,6 +1,7 @@
 package tickets;
 
-public class User {
+// Use abstract class to prevent instantiation
+public abstract class User {
     private int id;
     private String firstName;
     private String lastName;
