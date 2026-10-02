@@ -2,9 +2,19 @@
 
 ## Docker
 
-Start a database:
+Start a container:
+```bash
+docker compose up
+```
+
+Start a container in headless mode to run in the background (detach):
 ```bash
 docker compose up -d
+```
+
+Build a Docker image and start a container:
+```
+docker compose up --build
 ```
 
 Check for running containers:
