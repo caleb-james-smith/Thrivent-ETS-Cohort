@@ -2,8 +2,10 @@ package com.example.ticket.service;
 
 import com.example.ticket.model.Ticket;
 import com.example.ticket.repository.TicketRepository;
+
 import org.springframework.stereotype.Service;
 
+import jakarta.persistence.EntityNotFoundException;
 import java.util.List;
 import java.util.Optional;
 
@@ -20,18 +22,18 @@ public class TicketService {
     }
 
     // Version 1
-    public Ticket findById(Long id) {
-        // Type mismatch: cannot convert from Optional<Ticket> to Ticket:
-        // return ticketRepository.findById(id);
+    // public Ticket findById(Long id) {
+    //     // Type mismatch: cannot convert from Optional<Ticket> to Ticket:
+    //     // return ticketRepository.findById(id);
 
-        // Handle no ticket found with the provided id
-        return ticketRepository.findById(id).orElse(null);
-    }
+    //     // Handle no ticket found with the provided id
+    //     return ticketRepository.findById(id).orElse(null);
+    // }
 
     // Version 2
-    // public Optional<Ticket> findById(Long id) {
-    //     return ticketRepository.findById(id);
-    // }
+    public Ticket findById(Long id) {
+        return ticketRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("Did not find ticket with id = " + id));
+    }
 
     public String renderHello(String header, String name) {
         String result = "";

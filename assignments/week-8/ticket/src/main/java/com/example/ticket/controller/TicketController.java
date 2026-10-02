@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import jakarta.persistence.EntityNotFoundException;
 import java.util.Optional;
 
 @RestController
@@ -22,16 +23,16 @@ public class TicketController {
         this.ticketService = ticketService;
     }
 
-    @GetMapping("/all")
+    @GetMapping(value = {"", "/", "/all"})
     public ResponseEntity<?> getAllTickets() {
         return ResponseEntity.ok(ticketService.findAll());
     }
 
     // Version 1
-    @GetMapping("/{id}")
-    public ResponseEntity<?> getTicketById(@PathVariable Long id) {
-        return ResponseEntity.ok(ticketService.findById(id));
-    }
+    // @GetMapping("/{id}")
+    // public ResponseEntity<?> getTicketById(@PathVariable Long id) {
+    //     return ResponseEntity.ok(ticketService.findById(id));
+    // }
 
     // Version 2
     // @GetMapping("/{id}")
@@ -44,6 +45,17 @@ public class TicketController {
     //         return ResponseEntity.notFound().build();
     //     }
     // }
+
+    // Version 3
+    @GetMapping("/{id}")
+    public ResponseEntity<?> getTicketById(@PathVariable Long id) {
+        try {
+            return ResponseEntity.ok(ticketService.findById(id));
+        } catch (EntityNotFoundException e) {
+            System.err.println("Error: " + e.getMessage());
+            return ResponseEntity.notFound().build();
+        }
+    }
 
 	@GetMapping("/hello")
 	public String getHello(@RequestParam(value = "name", defaultValue = "") String name) {
