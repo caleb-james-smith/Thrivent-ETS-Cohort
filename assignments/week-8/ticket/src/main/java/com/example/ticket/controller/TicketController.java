@@ -5,6 +5,7 @@ import com.example.ticket.model.Ticket;
 import com.example.ticket.dto.CreateTicketRequest;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -26,6 +27,11 @@ public class TicketController {
         this.ticketService = ticketService;
     }
 
+    @GetMapping("/hello")
+    public String getHello(@RequestParam(value = "name", defaultValue = "") String name) {
+        return ticketService.renderHello(header, name);
+    }
+
     @GetMapping(value = {"", "/", "/all"})
     public ResponseEntity<?> getAllTickets() {
         return ResponseEntity.ok(ticketService.findAll());
@@ -41,17 +47,23 @@ public class TicketController {
         }
     }
 
-	@GetMapping("/hello")
-	public String getHello(@RequestParam(value = "name", defaultValue = "") String name) {
-        return ticketService.renderHello(header, name);
-	}
-
     @PostMapping("/create")
-    public ResponseEntity<Ticket> create(@RequestBody CreateTicketRequest request) {
+    public ResponseEntity<Ticket> createTicket(@RequestBody CreateTicketRequest request) {
         return ResponseEntity.ok(
             ticketService.create(
                 request.title(),
                 request.description())
         );
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<?> deleteTicketById(@PathVariable Long id) {
+        try {
+            ticketService.deleteById(id);
+            return ResponseEntity.noContent().build();
+        } catch (EntityNotFoundException e) {
+            System.err.println("Error: " + e.getMessage());
+            return ResponseEntity.notFound().build();
+        }
     }
 }
