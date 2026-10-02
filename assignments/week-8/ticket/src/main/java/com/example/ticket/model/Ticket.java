@@ -21,6 +21,11 @@ public class Ticket {
     public Ticket() {
     }
 
+    public Ticket(String title, String description) {
+        this.title = title;
+        this.description = description;
+    }
+
     public Long getId() {
         return id;
     }

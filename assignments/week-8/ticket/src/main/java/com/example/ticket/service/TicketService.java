@@ -21,18 +21,13 @@ public class TicketService {
         return ticketRepository.findAll();
     }
 
-    // Version 1
-    // public Ticket findById(Long id) {
-    //     // Type mismatch: cannot convert from Optional<Ticket> to Ticket:
-    //     // return ticketRepository.findById(id);
-
-    //     // Handle no ticket found with the provided id
-    //     return ticketRepository.findById(id).orElse(null);
-    // }
-
-    // Version 2
     public Ticket findById(Long id) {
         return ticketRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("Did not find ticket with id = " + id));
+    }
+
+    public Ticket create(String title, String description) {
+        Ticket ticket = new Ticket(title, description);
+        return ticketRepository.save(ticket);
     }
 
     public String renderHello(String header, String name) {
