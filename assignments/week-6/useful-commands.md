@@ -13,7 +13,7 @@ docker compose up -d
 ```
 
 Build a Docker image and start a container:
-```
+```bash
 docker compose up --build
 ```
 
@@ -22,12 +22,22 @@ Check for running containers:
 docker ps
 ```
 
+List volumes:
+```bash
+docker volume ls 
+```
+
 Stop a database without deleting data:
 ```bash
 docker compose stop
 ```
 
-Reset a database and delete all local data:
+Remove container:
+```bash
+docker compose down
+```
+
+Remove named volumes for the project; Resets database and deletes all local data:
 ```bash
 docker compose down -v
 ```
