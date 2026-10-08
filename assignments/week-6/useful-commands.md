@@ -17,9 +17,24 @@ Build a Docker image and start a container:
 docker compose up --build
 ```
 
-Check for running containers:
+List running containers:
+```bash
+docker container ls
+```
+
+List running containers (alias):
 ```bash
 docker ps
+```
+
+List all containers:
+```bash
+docker container ls --all
+```
+
+List all containers (alias):
+```bash
+docker ps -a
 ```
 
 List volumes:

@@ -45,7 +45,7 @@ public class TicketService {
     }
 
     public void deleteById(Long id) {
-        // First, find ticket by id, and throw exception if not found
+        // First, find ticket by id; throw exception if not found
         Ticket ticket = ticketRepository.findById(id).orElseThrow(
             () -> new EntityNotFoundException("Did not find ticket with id = " + id)
         );
