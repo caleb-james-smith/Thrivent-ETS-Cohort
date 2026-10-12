@@ -1,0 +1,42 @@
+package tickets;
+
+// Use abstract class to prevent instantiation
+public abstract class User {
+    private int id;
+    private String firstName;
+    private String lastName;
+    private String email;
+    private String phoneNumber;
+
+    public User(int id, String firstName, String lastName, String email, String phoneNumber) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.phoneNumber = phoneNumber;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public String getFullName() {
+        return firstName + " " + lastName;
+    }
+}

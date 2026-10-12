@@ -2,14 +2,44 @@
 
 ## Docker
 
-Start a database:
+Start a container:
+```bash
+docker compose up
+```
+
+Start a container in headless mode to run in the background (detach):
 ```bash
 docker compose up -d
 ```
 
-Check for running containers:
+Build a Docker image and start a container:
+```bash
+docker compose up --build
+```
+
+List running containers:
+```bash
+docker container ls
+```
+
+List running containers (alias):
 ```bash
 docker ps
+```
+
+List all containers:
+```bash
+docker container ls --all
+```
+
+List all containers (alias):
+```bash
+docker ps -a
+```
+
+List volumes:
+```bash
+docker volume ls 
 ```
 
 Stop a database without deleting data:
@@ -17,7 +47,12 @@ Stop a database without deleting data:
 docker compose stop
 ```
 
-Reset a database and delete all local data:
+Remove container:
+```bash
+docker compose down
+```
+
+Remove named volumes for the project; Resets database and deletes all local data:
 ```bash
 docker compose down -v
 ```
